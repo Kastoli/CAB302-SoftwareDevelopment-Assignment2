@@ -93,6 +93,7 @@ public abstract class Passenger {
 	/**
 	 * Transition passenger to New<br>
 	 * PRE: isConfirmed(this)<br>
+	 * POST: isNew(this) AND this.getBookingTime() == cancellationTime<br>
 	 * <ul>
 	 * <li>cancelSeat: Confirmed -> New; up until departureTime</li>
 	 * </ul>
@@ -121,9 +122,12 @@ public abstract class Passenger {
 	/**
 	 * Transition passenger to Confirmed seat<br>
 	 * PRE: isNew(this) OR inQueue(this)<br>
+	 * POST: isConfirmed(this) AND this.getConfirmationTime() == confirmationTime AND <br>
+	 * 	     this.getDepartureTime() == departureTime<br>
 	 * <ul>
 	 * <li>confirmSeat: New -> Confirmed</li>
 	 * <li>confirmSeat: Queued -> Confirmed; up until departureTime</li> 
+	 * <li>if isQueued(this), then POST: this.getExitQueueTime() == confirmationTime</li>
 	 * </ul>
 	 * 
 	 * @param confirmationTime <code>int</code> day when seat is confirmed
@@ -135,9 +139,14 @@ public abstract class Passenger {
 		if(this.confirmed || this.refused || this.flown || confirmationTime < 0 || departureTime < confirmationTime){
 			throw new PassengerException("confirmed, refused, or flown == true OR confirmationTime < 0 OR departureTime < conformationTime");
 		} else if(this.newState || this.inQueue) {
+			if(this.inQueue){
+				this.exitQueueTime = confirmationTime;
+			}
 			this.newState = false;
 			this.inQueue = false;
 			this.confirmed = true;
+			this.confirmationTime = confirmationTime;
+			this.departureTime = departureTime;
 		} else {
 			throw new PassengerException("newState, or inQueue != true");
 		}
@@ -146,6 +155,7 @@ public abstract class Passenger {
 	/**
 	 * Transition passenger to Flown<br>
 	 * PRE: isConfirmed(this)<br>
+	 * POST: isFlown(this) AND this.getDepartureTime() == departureTime<br> 
 	 * <ul>
 	 * <li>flyPassenger:Confirmed -> Flown; finalised on departureTime</li>
 	 * </ul>
@@ -160,7 +170,7 @@ public abstract class Passenger {
 		} else if(this.confirmed) {
 			this.confirmed = false;
 			this.flown = true;
-			// finalised on departureTime?
+			this.departureTime = departureTime;
 		} else {
 			throw new PassengerException("confirmed != true");
 		}
@@ -276,6 +286,8 @@ public abstract class Passenger {
 	/**
 	 * Transition passenger to Queued<br>
 	 * PRE: isNew(this)<br>
+	 * POST: isQueued(this) AND this.getEnterQueueTime() == queueTime AND <br>
+	 * 		 this.getDepartureTime == departureTime<br>
 	 * <ul>
 	 * <li>queuePassenger: New -> Queued</li>
 	 * </ul>
@@ -304,9 +316,11 @@ public abstract class Passenger {
 	/**
 	 * Transition passenger to Refused<br>
 	 * PRE: isNew(this) OR isQueued(this) <br>
+	 * POST: isRefused(this)
 	 * <ul>
 	 * <li>refusePassenger:New -> Refused</li> 
      * <li>refusePassenger:Queued -> Refused; finalised on departureTime</li> 
+     * <li>if isQueued(this), then POST: this.getExitQueueTime() == refusalTime</li>
      * </ul>
      * 
 	 * @param refusalTime <code>int</code> holding refusal time  
@@ -317,11 +331,12 @@ public abstract class Passenger {
 		if(this.confirmed || this.refused || this.flown || refusalTime < 0 || refusalTime < bookingTime){
 			throw new PassengerException("");
 		} else if(this.newState || this.inQueue) {
+			if(this.inQueue){
+				this.exitQueueTime = refusalTime;
+			}
 			this.newState = false;
 			this.inQueue = false;
 			this.refused = true;
-			// finalised on departureTime?
-			// refusalTime holding refusal time?
 		} else {
 			throw new PassengerException("newState, or inQueue != true");
 		}
