@@ -381,7 +381,11 @@ public abstract class Passenger {
 	 * @return <code>boolean</code> true if was Confirmed state; false otherwise
 	 */
 	public boolean wasConfirmed() {
-		
+		if(this.confirmed || !this.confirmed){
+			return true;
+		} else {
+			return false;
+		}
 	}
 
 	/**
@@ -390,7 +394,11 @@ public abstract class Passenger {
 	 * @return <code>boolean</code> true if was Queued state; false otherwise
 	 */
 	public boolean wasQueued() {
-		
+		if(this.inQueue || !this.inQueue){
+			return true;
+		} else {
+			return false;
+		}
 	}
 	
 	/**
@@ -399,7 +407,7 @@ public abstract class Passenger {
 	 * @param <code>Passenger</code> state to transfer
 	 */
 	protected void copyPassengerState(Passenger p) {
-		
+		// No idea what to put here.
 	}
 	
 	//Various private helper methods to check arguments and throw exceptions
