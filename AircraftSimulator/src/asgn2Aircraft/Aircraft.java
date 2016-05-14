@@ -425,7 +425,12 @@ public abstract class Aircraft {
 	 * where possible to Premium.  
 	 */
 	public void upgradeBookings() { 
-		
+		int i = 0;
+		while(numFirst != firstCapacity){
+			if(Character.toString(seats.get(i).getPassID().charAt(0)) == "J"){
+				
+			}
+		}
 	}
 
 	/**
