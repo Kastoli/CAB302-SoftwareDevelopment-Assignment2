@@ -425,7 +425,19 @@ public abstract class Aircraft {
 	 * where possible to Premium.  
 	 */
 	public void upgradeBookings() { 
-		
+		List<String> bookingsClass = new ArrayList<String>();
+		for (Passenger p: seats){
+			bookingsClass.add(Character.toString(p.getPassID().charAt(0)));
+		}
+		for(String c: bookingsClass){
+			if(c == "J" && numFirst >= firstCapacity){
+				//upgrade at index
+			} else if (c == "P" && numBusiness >= businessCapacity){
+				//upgrade at index
+			} else if (c == "Y" && numPremium >= premiumCapacity){
+				//upgrade at index
+			}
+		}
 	}
 
 	/**
