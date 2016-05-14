@@ -120,7 +120,7 @@ public abstract class Passenger {
 		} else if(this.flown) {
 			throw new PassengerException("flown == true");
 		} else if(cancellationTime < 0) {
-			throw new PassengerException(" cancellationTime < 0");
+			throw new PassengerException("cancellationTime < 0");
 		} else if(departureTime < cancellationTime) {
 			throw new PassengerException("departureTime < cancellationTime");
 		} else if(this.confirmed) {
@@ -128,7 +128,7 @@ public abstract class Passenger {
 			this.newState = true;
 			this.bookingTime = cancellationTime;
 		} else {
-			throw new PassengerException("isConfirmed != true");
+			throw new PassengerException("confirmed != true");
 		}
 	}
 
