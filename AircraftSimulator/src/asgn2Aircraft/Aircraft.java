@@ -102,7 +102,48 @@ public abstract class Aircraft {
 	 * @throws AircraftException if <code>Passenger</code> is not recorded in aircraft seating 
 	 */
 	public void cancelBooking(Passenger p,int cancellationTime) throws PassengerException, AircraftException {
-		//Stuff here
+		String classChar = Character.toString(p.getPassID().charAt(0));
+		if(classChar == "F"){
+			if(seats.contains(p)){
+				p.cancelSeat(cancellationTime);
+				this.numFirst--;
+				book.setNumFirst(numFirst);
+				book.setTotal(numFirst + numBusiness + numPremium + numEconomy);
+				seats.remove(p);
+			} else {
+				throw new AircraftException("Passenger is not recorded in first");
+			}
+		} else if(classChar == "J"){
+			if(seats.contains(p)){
+				p.cancelSeat(cancellationTime);
+				this.numBusiness--;
+				book.setNumFirst(numBusiness);
+				book.setTotal(numFirst + numBusiness + numPremium + numEconomy);
+				seats.remove(p);
+			} else {
+				throw new AircraftException("Passenger is not recorded in business");
+			}
+		} else if(classChar == "P"){
+			if(seats.contains(p)){
+				p.cancelSeat(cancellationTime);
+				this.numPremium--;
+				book.setNumFirst(numPremium);
+				book.setTotal(numFirst + numBusiness + numPremium + numEconomy);
+				seats.remove(p);
+			} else {
+				throw new AircraftException("Passenger is not recorded in premium");
+			}
+		} else if(classChar == "Y"){
+			if(seats.contains(p)){
+				p.cancelSeat(cancellationTime);
+				this.numEconomy--;
+				book.setNumFirst(numEconomy);
+				book.setTotal(numFirst + numBusiness + numPremium + numEconomy);
+				seats.remove(p);
+			} else {
+				throw new AircraftException("Passenger is not recorded in economy");
+			}
+		} 
 		this.status += Log.setPassengerMsg(p,"C","N");
 		//Stuff here
 	}
@@ -118,9 +159,50 @@ public abstract class Aircraft {
 	 * @throws AircraftException if no seats available in <code>Passenger</code> fare class. 
 	 */
 	public void confirmBooking(Passenger p,int confirmationTime) throws AircraftException, PassengerException { 
-		//Stuff here
+		String classChar = Character.toString(p.getPassID().charAt(0));
+		if(classChar == "F"){
+			if(numFirst != firstCapacity){
+				p.confirmSeat(confirmationTime, departureTime);
+				this.numFirst++;
+				book.setNumFirst(numFirst);
+				book.setTotal(numFirst + numBusiness + numPremium + numEconomy);
+				seats.add(p);
+			} else {
+				throw new AircraftException(p.noSeatsMsg());
+			}
+		} else if(classChar == "J"){
+			if(numBusiness != businessCapacity){
+				p.confirmSeat(confirmationTime, departureTime);
+				this.numBusiness++;
+				book.setNumBusiness(numBusiness);
+				book.setTotal(numFirst + numBusiness + numPremium + numEconomy);
+				seats.add(p);
+			} else {
+				throw new AircraftException(p.noSeatsMsg());
+			}
+		} else if(classChar == "P"){
+			if(numPremium != premiumCapacity){
+				p.confirmSeat(confirmationTime, departureTime);
+				this.numPremium++;
+				book.setNumBusiness(numPremium);
+				book.setTotal(numFirst + numBusiness + numPremium + numEconomy);
+				seats.add(p);
+			} else {
+				throw new AircraftException(p.noSeatsMsg());
+			}
+		} else if(classChar == "Y"){
+			if(numEconomy != economyCapacity){
+				p.confirmSeat(confirmationTime, departureTime);
+				this.numEconomy++;
+				book.setNumBusiness(numEconomy);
+				book.setTotal(numFirst + numBusiness + numPremium + numEconomy);
+				seats.add(p);
+			} else {
+				throw new AircraftException(p.noSeatsMsg());
+			}
+		} 
 		this.status += Log.setPassengerMsg(p,"N/Q","C");
-		//Stuff here
+		
 	}
 	
 	/**
@@ -142,7 +224,7 @@ public abstract class Aircraft {
 	 * @return <code>boolean</code> true if aircraft empty; false otherwise 
 	 */
 	public boolean flightEmpty() {
-		if (numFirst + numBusiness + numPremium + numEconomy == 0){
+		if (book.getTotal() == 0){
 			return true;
 		}else{
 			return false;
@@ -155,7 +237,7 @@ public abstract class Aircraft {
 	 * @return <code>boolean</code> true if aircraft full; false otherwise 
 	 */
 	public boolean flightFull() {
-		if (numFirst + numBusiness + numPremium + numEconomy == capacity){
+		if (book.getTotal() == capacity){
 			return true;
 		}else {
 			return false;
@@ -172,7 +254,9 @@ public abstract class Aircraft {
 	 * See {@link asgn2Passengers.Passenger#flyPassenger(int)}. 
 	 */
 	public void flyPassengers(int departureTime) throws PassengerException { 
-		
+		for (Passenger p: seats){
+			p.flyPassenger(departureTime);
+		}
 	}
 	
 	/**
