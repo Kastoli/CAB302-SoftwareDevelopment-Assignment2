@@ -19,7 +19,7 @@ public class Business extends Passenger {
 	 * 
 	 */
 	public Business(int bookingTime, int departureTime) throws PassengerException {
-		//super(bookingTime, departureTime);
+		super(bookingTime, departureTime);
 		this.passID = "J:" + this.passID;
 	}
 	
