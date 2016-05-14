@@ -1,6 +1,4 @@
-/**
- * 
- */
+
 package asgn2Passengers;
 
 /**
@@ -18,17 +16,19 @@ public class Business extends Passenger {
 	 * @param departureTime <code>int</code> day of the intended flight.  
 	 * @throws PassengerException if invalid bookingTime or departureTime 
 	 * @see asgnPassengers.Passenger#Passenger(int,int)
+	 * 
 	 */
 	public Business(int bookingTime, int departureTime) throws PassengerException {
-		//Stuff here
+		//super(bookingTime, departureTime);
 		this.passID = "J:" + this.passID;
 	}
 	
 	/**
 	 * Simple constructor to support {@link asgn2Passengers.Passenger#upgrade()} in other subclasses
+	 * 
 	 */
 	protected Business() {
-		
+		super();
 	}
 	
 	@Override
@@ -38,6 +38,9 @@ public class Business extends Passenger {
 
 	@Override
 	public Passenger upgrade() {
-	
+		First passenger = new First();
+		passenger.copyPassengerState(this);
+		passenger.passID = "F:" + passenger.passID; // This might not work, protected variables.
+		return passenger;
 	}
 }
