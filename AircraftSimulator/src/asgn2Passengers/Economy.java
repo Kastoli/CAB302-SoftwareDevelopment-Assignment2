@@ -1,6 +1,4 @@
-/**
- * 
- */
+
 package asgn2Passengers;
 
 /**
@@ -18,9 +16,10 @@ public class Economy extends Passenger {
 	 * @param departureTime <code>int</code> day of the intended flight.  
 	 * @throws PassengerException if invalid bookingTime or departureTime 
 	 * @see asgnPassengers.Passenger#Passenger(int,int)
+	 * 
 	 */
 	public Economy(int bookingTime,int departureTime) throws PassengerException {
-		//Stuff here
+		super(bookingTime, departureTime);
 		this.passID = "Y:" + this.passID;
 	}
 	
@@ -31,6 +30,9 @@ public class Economy extends Passenger {
 
 	@Override
 	public Passenger upgrade() {
-
+		Premium passenger = new Premium();
+		passenger.copyPassengerState(this);
+		passenger.passID = "P:" + passenger.passID; // This might not work, protected variables.
+		return passenger;
 	}
 }
