@@ -1,6 +1,4 @@
-/**
- * 
- */
+
 package asgn2Passengers;
 
 /**
@@ -18,17 +16,19 @@ public class First extends Passenger {
 	 * @param departureTime <code>int</code> day of the intended flight.  
 	 * @throws PassengerException if invalid bookingTime or departureTime 
 	 * @see asgnPassengers.Passenger#Passenger(int,int)
+	 * 
 	 */
 	public First(int bookingTime, int departureTime) throws PassengerException {
-		//Call here 
+		super(bookingTime, departureTime);
 		this.passID = "F:" + this.passID;
 	}
 	
 	/**
 	 * Simple constructor to support {@link asgn2Passengers.Passenger#upgrade()} in other subclasses
+	 * 
 	 */
 	protected First() {
-
+		super();
 	}
 
 	@Override
@@ -36,9 +36,8 @@ public class First extends Passenger {
 		return "No seats available in First";
 	}
 
-
 	@Override
 	public Passenger upgrade() {
-		//Think about it :) 
+		return this; // Cannot upgrade higher than first.
 	}
 }

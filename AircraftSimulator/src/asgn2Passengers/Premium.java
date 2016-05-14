@@ -1,6 +1,4 @@
-/**
- * 
- */
+
 package asgn2Passengers;
 
 /**
@@ -18,26 +16,31 @@ public class Premium extends Passenger {
 	 * @param departureTime <code>int</code> day of the intended flight.  
 	 * @throws PassengerException if invalid bookingTime or departureTime 
 	 * @see asgnPassengers.Passenger#Passenger(int,int)
+	 * 
 	 */
 	public Premium(int bookingTime,int departureTime) throws PassengerException {
-		//Stuff here
+		super(bookingTime, departureTime);
 		this.passID = "P:" + this.passID;
 	}
 	
 	/**
 	 * Simple constructor to support {@link asgn2Passengers.Passenger#upgrade()} in other subclasses
+	 * 
 	 */
 	protected Premium() {
-		
+		super();
 	}
 
 	@Override
-	public Passenger upgrade() {
-		
+	public String noSeatsMsg() {
+		return "No seats available in Premium";
 	}
 	
 	@Override
-	public String noSeatsMsg() {
-		return "No seats available in Premium";
+	public Passenger upgrade() {
+		Business passenger = new Business();
+		passenger.copyPassengerState(this);
+		passenger.passID = "J:" + passenger.passID; // This might not work, protected variables.
+		return passenger;
 	}
 }
