@@ -477,7 +477,17 @@ public abstract class Passenger {
 	 *
 	 */
 	protected void copyPassengerState(Passenger p) {
-		// I'm not sure what we're supposed to do here?
+		this.passID = p.getPassID();
+		this.newState = p.isNew();
+		this.confirmed = p.isConfirmed();
+		this.inQueue = p.isQueued();
+		this.flown = p.isFlown();
+		this.refused = p.isRefused();
+		this.bookingTime = p.getBookingTime();
+		this.enterQueueTime = p.getEnterQueueTime();
+		this.exitQueueTime = p.getExitQueueTime();
+		this.confirmationTime = p.getConfirmationTime();
+		this.departureTime = p.getDepartureTime(); 
 	}
 	
 	//Various private helper methods to check arguments and throw exceptions
