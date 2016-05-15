@@ -431,11 +431,23 @@ public abstract class Aircraft {
 		}
 		for(String c: bookingsClass){
 			if(c == "J" && numFirst >= firstCapacity){
-				//upgrade at index
+				seats.get(bookingsClass.indexOf(c)).upgrade();
+				numFirst++;
+				numBusiness--;
+				book.setNumFirst(numFirst);
+				book.setNumBusiness(numBusiness);
 			} else if (c == "P" && numBusiness >= businessCapacity){
-				//upgrade at index
+				seats.get(bookingsClass.indexOf(c)).upgrade();
+				numBusiness++;
+				numPremium--;
+				book.setNumPremium(numPremium);
+				book.setNumBusiness(numBusiness);
 			} else if (c == "Y" && numPremium >= premiumCapacity){
-				//upgrade at index
+				seats.get(bookingsClass.indexOf(c)).upgrade();
+				numEconomy--;
+				numPremium++;
+				book.setNumEconomy(numEconomy);
+				book.setNumBusiness(numPremium);
 			}
 		}
 	}
