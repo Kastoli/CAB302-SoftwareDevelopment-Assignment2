@@ -81,6 +81,8 @@ public abstract class Passenger {
 			this.passID = "" + Passenger.index;
 			Passenger.index++;
 			this.newState = true;
+			this.bookingTime = bookingTime;
+			this.departureTime = departureTime;
 		}
 	}
 	
