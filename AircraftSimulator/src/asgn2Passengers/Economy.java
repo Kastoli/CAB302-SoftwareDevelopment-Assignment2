@@ -32,7 +32,7 @@ public class Economy extends Passenger {
 	public Passenger upgrade() {
 		Premium passenger = new Premium();
 		passenger.copyPassengerState(this);
-		passenger.passID = "P(U)" + passenger.passID; // This might not work, protected variables.
+		passenger.passID = "P(U)" + passenger.passID;
 		return passenger;
 	}
 }
