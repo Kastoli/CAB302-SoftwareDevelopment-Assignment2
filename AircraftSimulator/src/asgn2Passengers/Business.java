@@ -40,7 +40,7 @@ public class Business extends Passenger {
 	public Passenger upgrade() {
 		First passenger = new First();
 		passenger.copyPassengerState(this);
-		passenger.passID = "F(U)" + passenger.passID; // This might not work, protected variables.
+		passenger.passID = "F(U)" + passenger.passID;
 		return passenger;
 	}
 }
