@@ -31,7 +31,7 @@ import asgn2Simulators.Log;
  * between travel classes, and relies heavily on the asgn2Passengers hierarchy. Reports are 
  * also provided for logging and graphical display. 
  * 
- * @author hogan
+ * @author hogan / Bryce Rochecouste
  *
  */
 public abstract class Aircraft {
@@ -93,7 +93,8 @@ public abstract class Aircraft {
 	
 	/**
 	 * Method to remove passenger from the aircraft - passenger must have a confirmed 
-	 * seat prior to entry to this method.   
+	 * seat prior to entry to this method. (Also will throw an exception if the cancellation time is before
+	 * confirmed time)  
 	 *
 	 * @param p <code>Passenger</code> to be removed from the aircraft 
 	 * @param cancellationTime <code>int</code> time operation performed 
@@ -199,7 +200,7 @@ public abstract class Aircraft {
 				book.setTotal(numFirst + numBusiness + numPremium + numEconomy);
 				seats.add(p);
 			} else {
-				throw new AircraftException(p.noSeatsMsg());
+				throw new AircraftException(noSeatsAvailableMsg(p));
 			}
 		} 
 		this.status += Log.setPassengerMsg(p,"N/Q","C");
