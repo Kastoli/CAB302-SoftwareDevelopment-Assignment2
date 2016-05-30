@@ -17,6 +17,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
@@ -152,7 +153,7 @@ public class GUISimulator extends JFrame implements Runnable {
 		// Add Panels to Window
 		add(p1);
 		
-		// Add Action Listeners to Text Fields
+		// Add Event Listeners to Text Fields
 		t3.getDocument().addDocumentListener(new DocumentListener(){
 			@Override
 			public void changedUpdate(DocumentEvent arg0) {
@@ -178,6 +179,49 @@ public class GUISimulator extends JFrame implements Runnable {
 			}
 		});
 		
+		// Add Event Listeners to Buttons
+		b1.addActionListener(new ActionListener(){
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				if(t1.getText().equals("")){
+					JOptionPane.showMessageDialog(null, "No RNG Seed specified using Default Seed instead.", "Error", JOptionPane.ERROR_MESSAGE);
+					t1.setText(Integer.toString(Constants.DEFAULT_SEED));
+				}
+				if(t2.getText().equals("")){
+					JOptionPane.showMessageDialog(null, "No Daily Mean specified using Default Value instead.", "Error", JOptionPane.ERROR_MESSAGE);
+					t2.setText(Double.toString(Constants.DEFAULT_DAILY_BOOKING_MEAN));
+				}
+				if(t3.getText().equals("")){
+					JOptionPane.showMessageDialog(null, "No Queue Size specified using Default Value instead.", "Error", JOptionPane.ERROR_MESSAGE);
+					t3.setText(Integer.toString(Constants.DEFAULT_MAX_QUEUE_SIZE));
+				} else if(Integer.parseInt(t3.getText())>Constants.DEFAULT_MAX_QUEUE_SIZE) {
+					JOptionPane.showMessageDialog(null, "Custom Queue Size specified is too large using Default Value instead.", "Error", JOptionPane.ERROR_MESSAGE);
+					t3.setText(Integer.toString(Constants.DEFAULT_MAX_QUEUE_SIZE));
+				}
+				if(t4.getText().equals("")){
+					JOptionPane.showMessageDialog(null, "No Cancellation Modifier specified using Default Value instead.", "Error", JOptionPane.ERROR_MESSAGE);
+					t4.setText(Double.toString(Constants.DEFAULT_CANCELLATION_PROB));
+				}
+				if(t5.getText().equals("")){
+					JOptionPane.showMessageDialog(null, "No First Class Modifier specified using Default Value instead.", "Error", JOptionPane.ERROR_MESSAGE);
+					t5.setText(Double.toString(Constants.DEFAULT_FIRST_PROB));
+				}
+				if(t6.getText().equals("")){
+					JOptionPane.showMessageDialog(null, "No Business Class Modifier specified using Default Value instead.", "Error", JOptionPane.ERROR_MESSAGE);
+					t6.setText(Double.toString(Constants.DEFAULT_BUSINESS_PROB));
+				}
+				if(t7.getText().equals("")){
+					JOptionPane.showMessageDialog(null, "No Premium Economy Modifier specified using Default Value instead.", "Error", JOptionPane.ERROR_MESSAGE);
+					t7.setText(Double.toString(Constants.DEFAULT_PREMIUM_PROB));
+				}
+				if(t8.getText().equals("")){
+					JOptionPane.showMessageDialog(null, "No Economy Modifier specified using Default Value instead.", "Error", JOptionPane.ERROR_MESSAGE);
+					t8.setText(Double.toString(Constants.DEFAULT_ECONOMY_PROB));
+				}
+				run();
+			}
+		});
+		
 		// Make Window Visible
 		setVisible(true);
 	}
@@ -188,15 +232,14 @@ public class GUISimulator extends JFrame implements Runnable {
 	@Override
 	public void run() {
 		// TODO Auto-generated method stub
-
+		System.out.println("run() has been executed");
 	}
 
 	/**
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		new GUISimulator("Window Title");
+		new GUISimulator("Airline Simulator");
 	}
 
 }
