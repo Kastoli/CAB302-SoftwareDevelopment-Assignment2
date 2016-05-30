@@ -52,7 +52,7 @@ public abstract class Aircraft {
 	protected String type; 
 	protected int departureTime; 
 	protected String status;
-	protected List<Passenger> seats;
+	protected List<Passenger> seats = new ArrayList<Passenger>();
 	
 
 	/**
@@ -102,8 +102,7 @@ public abstract class Aircraft {
 	 * @throws AircraftException if <code>Passenger</code> is not recorded in aircraft seating 
 	 */
 	public void cancelBooking(Passenger p,int cancellationTime) throws PassengerException, AircraftException {
-		String classChar = Character.toString(p.getPassID().charAt(0));
-		if(classChar == "F"){
+		if(p instanceof First){
 			if(seats.contains(p)){
 				p.cancelSeat(cancellationTime);
 				this.numFirst--;
@@ -113,7 +112,7 @@ public abstract class Aircraft {
 			} else {
 				throw new AircraftException("Passenger is not recorded in first");
 			}
-		} else if(classChar == "J"){
+		} else if(p instanceof Business){
 			if(seats.contains(p)){
 				p.cancelSeat(cancellationTime);
 				this.numBusiness--;
@@ -123,7 +122,7 @@ public abstract class Aircraft {
 			} else {
 				throw new AircraftException("Passenger is not recorded in business");
 			}
-		} else if(classChar == "P"){
+		} else if(p instanceof Premium){
 			if(seats.contains(p)){
 				p.cancelSeat(cancellationTime);
 				this.numPremium--;
@@ -133,7 +132,7 @@ public abstract class Aircraft {
 			} else {
 				throw new AircraftException("Passenger is not recorded in premium");
 			}
-		} else if(classChar == "Y"){
+		} else if(p instanceof Economy){
 			if(seats.contains(p)){
 				p.cancelSeat(cancellationTime);
 				this.numEconomy--;
@@ -159,8 +158,7 @@ public abstract class Aircraft {
 	 * @throws AircraftException if no seats available in <code>Passenger</code> fare class. 
 	 */
 	public void confirmBooking(Passenger p,int confirmationTime) throws AircraftException, PassengerException { 
-		String classChar = Character.toString(p.getPassID().charAt(0));
-		if(classChar == "F"){
+		if(p instanceof First){
 			if(numFirst != firstCapacity){
 				p.confirmSeat(confirmationTime, departureTime);
 				this.numFirst++;
@@ -170,7 +168,7 @@ public abstract class Aircraft {
 			} else {
 				throw new AircraftException(p.noSeatsMsg());
 			}
-		} else if(classChar == "J"){
+		} else if(p instanceof Business){
 			if(numBusiness != businessCapacity){
 				p.confirmSeat(confirmationTime, departureTime);
 				this.numBusiness++;
@@ -180,7 +178,7 @@ public abstract class Aircraft {
 			} else {
 				throw new AircraftException(p.noSeatsMsg());
 			}
-		} else if(classChar == "P"){
+		} else if(p instanceof Premium){
 			if(numPremium != premiumCapacity){
 				p.confirmSeat(confirmationTime, departureTime);
 				this.numPremium++;
@@ -190,7 +188,7 @@ public abstract class Aircraft {
 			} else {
 				throw new AircraftException(p.noSeatsMsg());
 			}
-		} else if(classChar == "Y"){
+		} else if(p instanceof Economy){
 			if(numEconomy != economyCapacity){
 				p.confirmSeat(confirmationTime, departureTime);
 				this.numEconomy++;
@@ -377,22 +375,20 @@ public abstract class Aircraft {
 	 * @param p <code>Passenger</code> to be Confirmed
 	 * @return <code>boolean</code> true if seats in Class(p); false otherwise
 	 */
-	public boolean seatsAvailable(Passenger p) {	
-		
-		String classChar = Character.toString(p.getPassID().charAt(0));
-		if(classChar == "F"){
+	public boolean seatsAvailable(Passenger p) {			
+		if(p instanceof First){
 			if(numFirst < firstCapacity){
 				return true;
 			}
-		} else if(classChar == "J"){
+		} else if(p instanceof Business){
 			if(numBusiness < businessCapacity){
 				return true;
 			}
-		} else if(classChar == "P"){
+		} else if(p instanceof Premium){
 			if(numPremium < premiumCapacity){
 				return true;
 			}
-		} else if(classChar == "Y"){
+		} else if(p instanceof Economy){
 			if(numEconomy < economyCapacity){
 				return true;
 			}
@@ -429,21 +425,21 @@ public abstract class Aircraft {
 		for (Passenger p: seats){
 			bookingsClass.add(Character.toString(p.getPassID().charAt(0)));
 		}
-		for(String c: bookingsClass){
-			if(c == "J" && numFirst >= firstCapacity){
-				seats.get(bookingsClass.indexOf(c)).upgrade();
+		for(Passenger p: seats){
+			if(p instanceof Business && numFirst >= firstCapacity){
+				p.upgrade();
 				numFirst++;
 				numBusiness--;
 				book.setNumFirst(numFirst);
 				book.setNumBusiness(numBusiness);
-			} else if (c == "P" && numBusiness >= businessCapacity){
-				seats.get(bookingsClass.indexOf(c)).upgrade();
+			} else if (p instanceof Premium && numBusiness >= businessCapacity){
+				p.upgrade();
 				numBusiness++;
 				numPremium--;
 				book.setNumPremium(numPremium);
 				book.setNumBusiness(numBusiness);
-			} else if (c == "Y" && numPremium >= premiumCapacity){
-				seats.get(bookingsClass.indexOf(c)).upgrade();
+			} else if (p instanceof Economy && numPremium >= premiumCapacity){
+				p.upgrade();
 				numEconomy--;
 				numPremium++;
 				book.setNumEconomy(numEconomy);
