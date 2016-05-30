@@ -162,7 +162,7 @@ public abstract class Aircraft {
 	 */
 	public void confirmBooking(Passenger p,int confirmationTime) throws AircraftException, PassengerException { 
 		if(p instanceof First){
-			if(numFirst != firstCapacity){
+			if(numFirst < firstCapacity){
 				p.confirmSeat(confirmationTime, departureTime);
 				this.numFirst++;
 				book.setNumFirst(numFirst);
@@ -172,7 +172,7 @@ public abstract class Aircraft {
 				throw new AircraftException(p.noSeatsMsg());
 			}
 		} else if(p instanceof Business){
-			if(numBusiness != businessCapacity){
+			if(numBusiness < businessCapacity){
 				p.confirmSeat(confirmationTime, departureTime);
 				this.numBusiness++;
 				book.setNumBusiness(numBusiness);
@@ -182,7 +182,7 @@ public abstract class Aircraft {
 				throw new AircraftException(p.noSeatsMsg());
 			}
 		} else if(p instanceof Premium){
-			if(numPremium != premiumCapacity){
+			if(numPremium < premiumCapacity){
 				p.confirmSeat(confirmationTime, departureTime);
 				this.numPremium++;
 				book.setNumBusiness(numPremium);
@@ -192,7 +192,7 @@ public abstract class Aircraft {
 				throw new AircraftException(p.noSeatsMsg());
 			}
 		} else if(p instanceof Economy){
-			if(numEconomy != economyCapacity){
+			if(numEconomy < economyCapacity){
 				p.confirmSeat(confirmationTime, departureTime);
 				this.numEconomy++;
 				book.setNumBusiness(numEconomy);
@@ -429,19 +429,19 @@ public abstract class Aircraft {
 			bookingsClass.add(Character.toString(p.getPassID().charAt(0)));
 		}
 		for(Passenger p: seats){
-			if(p instanceof Business && numFirst >= firstCapacity){
+			if(p instanceof Business && numFirst < firstCapacity){
 				p.upgrade();
 				numFirst++;
 				numBusiness--;
 				book.setNumFirst(numFirst);
 				book.setNumBusiness(numBusiness);
-			} else if (p instanceof Premium && numBusiness >= businessCapacity){
+			} else if (p instanceof Premium && numBusiness < businessCapacity){
 				p.upgrade();
 				numBusiness++;
 				numPremium--;
 				book.setNumPremium(numPremium);
 				book.setNumBusiness(numBusiness);
-			} else if (p instanceof Economy && numPremium >= premiumCapacity){
+			} else if (p instanceof Economy && numPremium < premiumCapacity){
 				p.upgrade();
 				numEconomy--;
 				numPremium++;

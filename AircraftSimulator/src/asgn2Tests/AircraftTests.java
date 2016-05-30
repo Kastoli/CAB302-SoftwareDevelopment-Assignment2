@@ -75,5 +75,95 @@ public class AircraftTests {
 		assertEquals(5, testFlight.getNumPassengers());
 		assertTrue(!testFlight.hasPassenger(pP));
 	}
+	
+	@Test
+	public void upgradeTest() throws AircraftException, PassengerException {
+		Economy pE = new Economy(900,1200);
+		Economy pE2 = new Economy(1100,1200);
+		Economy pE3 = new Economy(700,1200);
+		Business pB = new Business(100,1200);
+		Business pB2 = new Business(400,1200);
+		Business pB3 = new Business(1100,1200);
+		Premium pP = new Premium(500,1200);
+		First pF = new First(1100,1200);
+		A380 testFlight = new A380("SEA111", 1200);
+		testFlight.confirmBooking(pE, 1100);
+		testFlight.confirmBooking(pE2, 1100);
+		testFlight.confirmBooking(pE3, 1100);
+		testFlight.confirmBooking(pB, 1100);
+		testFlight.confirmBooking(pB2, 1100);
+		testFlight.confirmBooking(pB3, 1100);
+		testFlight.confirmBooking(pP, 1100);
+		testFlight.confirmBooking(pF, 1100);
+		testFlight.cancelBooking(pE2, 1130);
+		testFlight.cancelBooking(pB3, 1130);
+		testFlight.cancelBooking(pP, 1130);
+		testFlight.upgradeBookings();
+		assertEquals(2, testFlight.getNumPremium());
+		assertEquals(3, testFlight.getNumFirst());
+		assertEquals(5, testFlight.getNumPassengers());		
+	}
+	
+	@Test
+	public void seatsAvailableTest() throws AircraftException, PassengerException {
+		A380 testFlight = new A380("SEA122", 1300, 1, 2, 1, 4);
+		First pF = new First(1100,1300);
+		Business pB = new Business(100,1300);
+		testFlight.confirmBooking(pF, 1200);
+		testFlight.confirmBooking(pB, 1200);
+		assertFalse(testFlight.seatsAvailable(pF));
+		assertTrue(testFlight.seatsAvailable(pB));
+	}
+	
+	@Test
+	public void flyPassengersTest() throws AircraftException, PassengerException {
+		A380 testFlight = new A380("SEA122", 1300, 1, 2, 1, 4);
+		First pF = new First(1100,1300);
+		Business pB = new Business(100,1300);
+		testFlight.confirmBooking(pF, 1200);
+		testFlight.confirmBooking(pB, 1200);
+		testFlight.flyPassengers(1300);
+		assertTrue(pF.isFlown());
+		assertTrue(pB.isFlown());
+	}
+	
+	@Test
+	public void flightFullTest() throws AircraftException, PassengerException {
+		A380 testFlight = new A380("SEA122", 1300, 1, 1, 0, 0);
+		First pF = new First(1100,1300);
+		Business pB = new Business(100,1300);
+		testFlight.confirmBooking(pF, 1200);
+		testFlight.confirmBooking(pB, 1200);
+		assertTrue(testFlight.flightFull());
+	}
+	
+	@Test
+	public void upgradeTest2() throws AircraftException, PassengerException {
+		Economy pE = new Economy(900,1200);
+		Economy pE2 = new Economy(1100,1200);
+		Economy pE3 = new Economy(700,1200);
+		Business pB = new Business(100,1200);
+		Business pB2 = new Business(400,1200);
+		Business pB3 = new Business(1100,1200);
+		Premium pP = new Premium(500,1200);
+		First pF = new First(1100,1200);
+		A380 testFlight = new A380("SEA111", 1200, 2, 10, 10, 40);
+		testFlight.confirmBooking(pE, 1100);
+		testFlight.confirmBooking(pE2, 1100);
+		testFlight.confirmBooking(pE3, 1100);
+		testFlight.confirmBooking(pB, 1100);
+		testFlight.confirmBooking(pB2, 1100);
+		testFlight.confirmBooking(pB3, 1100);
+		testFlight.confirmBooking(pP, 1100);
+		testFlight.confirmBooking(pF, 1100);
+		testFlight.cancelBooking(pE2, 1130);
+		testFlight.cancelBooking(pB3, 1130);
+		testFlight.cancelBooking(pP, 1130);
+		testFlight.upgradeBookings();
+		assertEquals(2, testFlight.getNumPremium());
+		assertEquals(2, testFlight.getNumFirst());
+		assertEquals(1, testFlight.getNumBusiness());
+		assertEquals(5, testFlight.getNumPassengers());
+	}
 
 }
