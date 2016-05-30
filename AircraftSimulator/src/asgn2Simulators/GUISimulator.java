@@ -6,6 +6,7 @@
  */
 package asgn2Simulators;
 
+import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.FlowLayout;
 import java.awt.Font;
@@ -25,7 +26,9 @@ import javax.swing.SwingConstants;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 
+import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
+import org.jfree.chart.plot.XYPlot;
 
 /**
  * @author hogan
@@ -78,9 +81,6 @@ public class GUISimulator extends JFrame implements Runnable {
 	JPanel p12 = new JPanel();
 	JPanel p13 = new JPanel();
 	JPanel p14 = new JPanel();
-	
-	// Create Free Chart
-	JFreeChart chart;
 	
 	/**
 	 * @param arg0
@@ -220,6 +220,29 @@ public class GUISimulator extends JFrame implements Runnable {
 				}
 				run();
 			}
+		});
+		
+		b2.addActionListener(new ActionListener(){
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				JFrame chartFrame = new JFrame();
+				chartFrame.setSize(800,540);
+				chartFrame.setResizable(false);
+				
+				JFreeChart chart = new JFreeChart(null); // This needs plot data.
+				
+				JPanel chartJPanel = new JPanel();
+				chartJPanel.setLayout(new BorderLayout());
+				
+				ChartPanel chartPanel = new ChartPanel(chart);
+				
+				chartJPanel.add(chartPanel,BorderLayout.CENTER);			
+				
+				chartFrame.add(chartJPanel);
+				
+				chartFrame.setVisible(true);
+			}
+			
 		});
 		
 		// Make Window Visible
