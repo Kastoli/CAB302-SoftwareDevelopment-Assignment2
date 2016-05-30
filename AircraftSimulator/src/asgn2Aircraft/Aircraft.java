@@ -31,7 +31,7 @@ import asgn2Simulators.Log;
  * between travel classes, and relies heavily on the asgn2Passengers hierarchy. Reports are 
  * also provided for logging and graphical display. 
  * 
- * @author hogan
+ * @author hogan / Bryce Rochecouste
  *
  */
 public abstract class Aircraft {
@@ -93,7 +93,8 @@ public abstract class Aircraft {
 	
 	/**
 	 * Method to remove passenger from the aircraft - passenger must have a confirmed 
-	 * seat prior to entry to this method.   
+	 * seat prior to entry to this method. (Also will throw an exception if the cancellation time is before
+	 * confirmed time)  
 	 *
 	 * @param p <code>Passenger</code> to be removed from the aircraft 
 	 * @param cancellationTime <code>int</code> time operation performed 
@@ -102,6 +103,9 @@ public abstract class Aircraft {
 	 * @throws AircraftException if <code>Passenger</code> is not recorded in aircraft seating 
 	 */
 	public void cancelBooking(Passenger p,int cancellationTime) throws PassengerException, AircraftException {
+		if(cancellationTime < p.getConfirmationTime()){
+			throw new AircraftException("Cannot Cancel before confirmed");
+		}
 		if(p instanceof First){
 			if(seats.contains(p)){
 				p.cancelSeat(cancellationTime);
@@ -159,7 +163,7 @@ public abstract class Aircraft {
 	 */
 	public void confirmBooking(Passenger p,int confirmationTime) throws AircraftException, PassengerException { 
 		if(p instanceof First){
-			if(numFirst != firstCapacity){
+			if(numFirst < firstCapacity){
 				p.confirmSeat(confirmationTime, departureTime);
 				this.numFirst++;
 				book.setNumFirst(numFirst);
@@ -169,7 +173,7 @@ public abstract class Aircraft {
 				throw new AircraftException(p.noSeatsMsg());
 			}
 		} else if(p instanceof Business){
-			if(numBusiness != businessCapacity){
+			if(numBusiness < businessCapacity){
 				p.confirmSeat(confirmationTime, departureTime);
 				this.numBusiness++;
 				book.setNumBusiness(numBusiness);
@@ -179,7 +183,7 @@ public abstract class Aircraft {
 				throw new AircraftException(p.noSeatsMsg());
 			}
 		} else if(p instanceof Premium){
-			if(numPremium != premiumCapacity){
+			if(numPremium < premiumCapacity){
 				p.confirmSeat(confirmationTime, departureTime);
 				this.numPremium++;
 				book.setNumBusiness(numPremium);
@@ -189,14 +193,14 @@ public abstract class Aircraft {
 				throw new AircraftException(p.noSeatsMsg());
 			}
 		} else if(p instanceof Economy){
-			if(numEconomy != economyCapacity){
+			if(numEconomy < economyCapacity){
 				p.confirmSeat(confirmationTime, departureTime);
 				this.numEconomy++;
 				book.setNumBusiness(numEconomy);
 				book.setTotal(numFirst + numBusiness + numPremium + numEconomy);
 				seats.add(p);
 			} else {
-				throw new AircraftException(p.noSeatsMsg());
+				throw new AircraftException(noSeatsAvailableMsg(p));
 			}
 		} 
 		this.status += Log.setPassengerMsg(p,"N/Q","C");
@@ -426,19 +430,19 @@ public abstract class Aircraft {
 			bookingsClass.add(Character.toString(p.getPassID().charAt(0)));
 		}
 		for(Passenger p: seats){
-			if(p instanceof Business && numFirst >= firstCapacity){
+			if(p instanceof Business && numFirst < firstCapacity){
 				p.upgrade();
 				numFirst++;
 				numBusiness--;
 				book.setNumFirst(numFirst);
 				book.setNumBusiness(numBusiness);
-			} else if (p instanceof Premium && numBusiness >= businessCapacity){
+			} else if (p instanceof Premium && numBusiness < businessCapacity){
 				p.upgrade();
 				numBusiness++;
 				numPremium--;
 				book.setNumPremium(numPremium);
 				book.setNumBusiness(numBusiness);
-			} else if (p instanceof Economy && numPremium >= premiumCapacity){
+			} else if (p instanceof Economy && numPremium < premiumCapacity){
 				p.upgrade();
 				numEconomy--;
 				numPremium++;
