@@ -102,6 +102,9 @@ public abstract class Aircraft {
 	 * @throws AircraftException if <code>Passenger</code> is not recorded in aircraft seating 
 	 */
 	public void cancelBooking(Passenger p,int cancellationTime) throws PassengerException, AircraftException {
+		if(cancellationTime < p.getConfirmationTime()){
+			throw new AircraftException("Cannot Cancel before confirmed");
+		}
 		if(p instanceof First){
 			if(seats.contains(p)){
 				p.cancelSeat(cancellationTime);
