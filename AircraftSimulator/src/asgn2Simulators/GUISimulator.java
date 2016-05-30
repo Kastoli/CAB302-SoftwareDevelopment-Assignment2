@@ -6,17 +6,18 @@
  */
 package asgn2Simulators;
 
+import java.awt.FlowLayout;
 import java.awt.Font;
+import java.awt.GridLayout;
 import java.awt.HeadlessException;
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
-import javax.swing.JButton;
-import java.awt.GridLayout;
-import java.awt.FlowLayout;
 import javax.swing.SwingConstants;
+import org.jfree.chart.JFreeChart;
 
 /**
  * @author hogan
@@ -41,14 +42,14 @@ public class GUISimulator extends JFrame implements Runnable {
 	JLabel l11 = new JLabel("Economy");
 	
 	// Create Text Fields
-	JTextField t1 = new JTextField(8);
-	JTextField t2 = new JTextField(8);
-	JTextField t3 = new JTextField(8);
-	JTextField t4 = new JTextField(8);
-	JTextField t5 = new JTextField(8);
-	JTextField t6 = new JTextField(8);
-	JTextField t7 = new JTextField(8);
-	JTextField t8 = new JTextField(8);
+	JTextField t1 = new JTextField(Integer.toString(Constants.DEFAULT_SEED), 8);
+	JTextField t2 = new JTextField(Double.toString(Constants.DEFAULT_DAILY_BOOKING_MEAN), 8);
+	JTextField t3 = new JTextField(Integer.toString(Constants.DEFAULT_MAX_QUEUE_SIZE), 8);
+	JTextField t4 = new JTextField(Double.toString(Constants.DEFAULT_CANCELLATION_PROB), 8);
+	JTextField t5 = new JTextField(Double.toString(Constants.DEFAULT_FIRST_PROB), 8);
+	JTextField t6 = new JTextField(Double.toString(Constants.DEFAULT_BUSINESS_PROB), 8);
+	JTextField t7 = new JTextField(Double.toString(Constants.DEFAULT_PREMIUM_PROB), 8);
+	JTextField t8 = new JTextField(Double.toString(Constants.DEFAULT_ECONOMY_PROB), 8);
 	
 	// Create Buttons
 	JButton b1 = new JButton("Run Simulation");
@@ -69,6 +70,9 @@ public class GUISimulator extends JFrame implements Runnable {
 	JPanel p12 = new JPanel();
 	JPanel p13 = new JPanel();
 	JPanel p14 = new JPanel();
+	
+	// Create Free Chart
+	JFreeChart chart;
 	
 	/**
 	 * @param arg0
