@@ -6,10 +6,14 @@
  */
 package asgn2Simulators;
 
+import java.awt.Color;
 import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.HeadlessException;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -17,6 +21,9 @@ import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
+
 import org.jfree.chart.JFreeChart;
 
 /**
@@ -144,6 +151,32 @@ public class GUISimulator extends JFrame implements Runnable {
 
 		// Add Panels to Window
 		add(p1);
+		
+		// Add Action Listeners to Text Fields
+		t3.getDocument().addDocumentListener(new DocumentListener(){
+			@Override
+			public void changedUpdate(DocumentEvent arg0) {
+				changeColour();
+			}
+			@Override
+			public void insertUpdate(DocumentEvent arg0) {
+				changeColour();
+			}
+			@Override
+			public void removeUpdate(DocumentEvent arg0) {
+				changeColour();
+			}
+			
+			public void changeColour(){
+				if(!t3.getText().equals("")){
+					if(Integer.parseInt(t3.getText())>Constants.DEFAULT_MAX_QUEUE_SIZE){
+						t3.setForeground(Color.RED);
+					} else {
+						t3.setForeground(Color.BLACK);
+					}
+				}
+			}
+		});
 		
 		// Make Window Visible
 		setVisible(true);
