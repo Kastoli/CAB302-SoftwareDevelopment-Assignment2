@@ -11,7 +11,7 @@ package asgn2Aircraft;
  * Specialisation of the {@link asgn2Aircraft.Aircraft} class for the Airbus A380-800. 
  * Default passenger capacities are based on the QANTAS four class configuration 
  * 
- * @author hogan
+ * @author hogan / Bryce Rochecouste
  *
  */
 public class A380 extends Aircraft {
