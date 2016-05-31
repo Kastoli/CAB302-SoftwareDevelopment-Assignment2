@@ -26,9 +26,7 @@ import javax.swing.SwingConstants;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 
-import org.jfree.chart.ChartPanel;
-import org.jfree.chart.JFreeChart;
-import org.jfree.chart.plot.XYPlot;
+import org.jfree.chart.plot.Plot;
 
 /**
  * @author hogan
@@ -81,6 +79,9 @@ public class GUISimulator extends JFrame implements Runnable {
 	JPanel p12 = new JPanel();
 	JPanel p13 = new JPanel();
 	JPanel p14 = new JPanel();
+	
+	// Private variable to hold chart data from simulation
+	private Plot plot;
 	
 	/**
 	 * @param arg0
@@ -285,24 +286,11 @@ public class GUISimulator extends JFrame implements Runnable {
 		b2.addActionListener(new ActionListener(){
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				JFrame chartFrame = new JFrame();
-				chartFrame.setSize(800,540);
-				chartFrame.setResizable(false);
-				
-				JFreeChart chart = new JFreeChart(null); // This needs plot data.
-				
-				JPanel chartJPanel = new JPanel();
-				chartJPanel.setLayout(new BorderLayout());
-				
-				ChartPanel chartPanel = new ChartPanel(chart);
-				
-				chartJPanel.add(chartPanel,BorderLayout.CENTER);			
-				
-				chartFrame.add(chartJPanel);
-				
-				chartFrame.setVisible(true);
+				if(plot != null){
+					ChartPanel chart = new ChartPanel(arg0, plot);
+					chart.setVisible(true);
+				}
 			}
-			
 		});
 		
 		// Make Window Visible
