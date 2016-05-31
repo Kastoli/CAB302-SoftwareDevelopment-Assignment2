@@ -170,10 +170,14 @@ public class GUISimulator extends JFrame implements Runnable {
 			
 			public void changeColour(){
 				if(!t3.getText().equals("")){
-					if(Integer.parseInt(t3.getText())>Constants.DEFAULT_MAX_QUEUE_SIZE){
+					try{
+						if(Integer.parseInt(t3.getText())>Constants.DEFAULT_MAX_QUEUE_SIZE){
+							t3.setForeground(Color.RED);
+						} else {
+							t3.setForeground(Color.BLACK);
+						}
+					} catch(NumberFormatException e) {
 						t3.setForeground(Color.RED);
-					} else {
-						t3.setForeground(Color.BLACK);
 					}
 				}
 			}
@@ -187,37 +191,93 @@ public class GUISimulator extends JFrame implements Runnable {
 					JOptionPane.showMessageDialog(null, "No RNG Seed specified using Default Seed instead.", "Error", JOptionPane.ERROR_MESSAGE);
 					t1.setText(Integer.toString(Constants.DEFAULT_SEED));
 				}
+				try{
+					Integer.parseInt(t1.getText());
+				} catch(NumberFormatException e){
+					JOptionPane.showMessageDialog(null, "Invalid RNG Seed specified using Default Seed instead.", "Error", JOptionPane.ERROR_MESSAGE);
+					t1.setText(Integer.toString(Constants.DEFAULT_SEED));
+				}
+				
 				if(t2.getText().equals("")){
 					JOptionPane.showMessageDialog(null, "No Daily Mean specified using Default Value instead.", "Error", JOptionPane.ERROR_MESSAGE);
 					t2.setText(Double.toString(Constants.DEFAULT_DAILY_BOOKING_MEAN));
 				}
+				try{
+					Double.parseDouble(t2.getText());
+				} catch(NumberFormatException e){
+					JOptionPane.showMessageDialog(null, "Invalid Daily Mean specified using Default Value instead.", "Error", JOptionPane.ERROR_MESSAGE);
+					t2.setText(Double.toString(Constants.DEFAULT_DAILY_BOOKING_MEAN));
+				}
+				
 				if(t3.getText().equals("")){
 					JOptionPane.showMessageDialog(null, "No Queue Size specified using Default Value instead.", "Error", JOptionPane.ERROR_MESSAGE);
 					t3.setText(Integer.toString(Constants.DEFAULT_MAX_QUEUE_SIZE));
-				} else if(Integer.parseInt(t3.getText())>Constants.DEFAULT_MAX_QUEUE_SIZE) {
-					JOptionPane.showMessageDialog(null, "Custom Queue Size specified is too large using Default Value instead.", "Error", JOptionPane.ERROR_MESSAGE);
+				}
+				try{
+					if(Integer.parseInt(t3.getText())>Constants.DEFAULT_MAX_QUEUE_SIZE) {
+						JOptionPane.showMessageDialog(null, "Custom Queue Size specified is too large using Default Value instead.", "Error", JOptionPane.ERROR_MESSAGE);
+						t3.setText(Integer.toString(Constants.DEFAULT_MAX_QUEUE_SIZE));
+					}
+				} catch(NumberFormatException e){
+					JOptionPane.showMessageDialog(null, "Invalid Queue Size specified using Default Value instead.", "Error", JOptionPane.ERROR_MESSAGE);
 					t3.setText(Integer.toString(Constants.DEFAULT_MAX_QUEUE_SIZE));
 				}
+				
 				if(t4.getText().equals("")){
 					JOptionPane.showMessageDialog(null, "No Cancellation Modifier specified using Default Value instead.", "Error", JOptionPane.ERROR_MESSAGE);
 					t4.setText(Double.toString(Constants.DEFAULT_CANCELLATION_PROB));
 				}
+				try{
+					Double.parseDouble(t4.getText());
+				} catch(NumberFormatException e){
+					JOptionPane.showMessageDialog(null, "Invalid Cancellation Modifier specified using Default Value instead.", "Error", JOptionPane.ERROR_MESSAGE);
+					t4.setText(Double.toString(Constants.DEFAULT_CANCELLATION_PROB));
+				}
+				
 				if(t5.getText().equals("")){
 					JOptionPane.showMessageDialog(null, "No First Class Modifier specified using Default Value instead.", "Error", JOptionPane.ERROR_MESSAGE);
 					t5.setText(Double.toString(Constants.DEFAULT_FIRST_PROB));
 				}
+				try{
+					Double.parseDouble(t5.getText());
+				} catch(NumberFormatException e){
+					JOptionPane.showMessageDialog(null, "Invalid First Class Modifier specified using Default Value instead.", "Error", JOptionPane.ERROR_MESSAGE);
+					t5.setText(Double.toString(Constants.DEFAULT_FIRST_PROB));
+				}
+				
 				if(t6.getText().equals("")){
 					JOptionPane.showMessageDialog(null, "No Business Class Modifier specified using Default Value instead.", "Error", JOptionPane.ERROR_MESSAGE);
 					t6.setText(Double.toString(Constants.DEFAULT_BUSINESS_PROB));
 				}
+				try{
+					Double.parseDouble(t6.getText());
+				} catch(NumberFormatException e){
+					JOptionPane.showMessageDialog(null, "Invalid Business Class Modifier specified using Default Value instead.", "Error", JOptionPane.ERROR_MESSAGE);
+					t6.setText(Double.toString(Constants.DEFAULT_BUSINESS_PROB));
+				}
+				
 				if(t7.getText().equals("")){
 					JOptionPane.showMessageDialog(null, "No Premium Economy Modifier specified using Default Value instead.", "Error", JOptionPane.ERROR_MESSAGE);
 					t7.setText(Double.toString(Constants.DEFAULT_PREMIUM_PROB));
 				}
+				try{
+					Double.parseDouble(t7.getText());
+				} catch(NumberFormatException e){
+					JOptionPane.showMessageDialog(null, "Invalid Premium Economy Modifier specified using Default Value instead.", "Error", JOptionPane.ERROR_MESSAGE);
+					t7.setText(Double.toString(Constants.DEFAULT_PREMIUM_PROB));
+				}
+				
 				if(t8.getText().equals("")){
 					JOptionPane.showMessageDialog(null, "No Economy Modifier specified using Default Value instead.", "Error", JOptionPane.ERROR_MESSAGE);
 					t8.setText(Double.toString(Constants.DEFAULT_ECONOMY_PROB));
 				}
+				try{
+					Double.parseDouble(t8.getText());
+				} catch(NumberFormatException e){
+					JOptionPane.showMessageDialog(null, "Invalid Economy Modifier specified using Default Value instead.", "Error", JOptionPane.ERROR_MESSAGE);
+					t8.setText(Double.toString(Constants.DEFAULT_ECONOMY_PROB));
+				}
+				
 				run();
 			}
 		});
