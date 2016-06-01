@@ -425,9 +425,9 @@ public abstract class Aircraft {
 	 * where possible to Premium.  
 	 */
 	public void upgradeBookings() { 
-		while (numFirst < firstCapacity && numBusiness > 0){
+		if (numFirst < firstCapacity && numBusiness > 0){
 			for(Passenger p: seats){
-				if(p instanceof Business){
+				if(p instanceof Business && numFirst < firstCapacity && numBusiness > 0){
 					p.upgrade();
 					numFirst++;
 					numBusiness--;
@@ -436,9 +436,9 @@ public abstract class Aircraft {
 				}	
 			}
 		}
-		while (numBusiness < businessCapacity && numPremium > 0){
+		if (numBusiness < businessCapacity && numPremium > 0){
 			for(Passenger p: seats){
-				if (p instanceof Premium){
+				if (p instanceof Premium && numBusiness < businessCapacity && numPremium > 0){
 					p.upgrade();
 					numBusiness++;
 					numPremium--;
@@ -447,9 +447,9 @@ public abstract class Aircraft {
 				}	
 			}	
 		}		
-		while (numPremium < premiumCapacity && numEconomy > 0){			
+		 if (numPremium < premiumCapacity && numEconomy > 0){			
 			for(Passenger p:seats){		
-				if (p instanceof Economy && numPremium < premiumCapacity){
+				if (p instanceof Economy && numPremium < premiumCapacity && numEconomy > 0){
 					p.upgrade();
 					numEconomy--;
 					numPremium++;
