@@ -425,29 +425,37 @@ public abstract class Aircraft {
 	 * where possible to Premium.  
 	 */
 	public void upgradeBookings() { 
-		List<String> bookingsClass = new ArrayList<String>();
-		for (Passenger p: seats){
-			bookingsClass.add(Character.toString(p.getPassID().charAt(0)));
+		while (numFirst < firstCapacity && numBusiness > 0){
+			for(Passenger p: seats){
+				if(p instanceof Business){
+					p.upgrade();
+					numFirst++;
+					numBusiness--;
+					book.setNumFirst(numFirst);
+					book.setNumBusiness(numBusiness);			
+				}	
+			}
 		}
-		for(Passenger p: seats){
-			if(p instanceof Business && numFirst < firstCapacity){
-				p.upgrade();
-				numFirst++;
-				numBusiness--;
-				book.setNumFirst(numFirst);
-				book.setNumBusiness(numBusiness);
-			} else if (p instanceof Premium && numBusiness < businessCapacity){
-				p.upgrade();
-				numBusiness++;
-				numPremium--;
-				book.setNumPremium(numPremium);
-				book.setNumBusiness(numBusiness);
-			} else if (p instanceof Economy && numPremium < premiumCapacity){
-				p.upgrade();
-				numEconomy--;
-				numPremium++;
-				book.setNumEconomy(numEconomy);
-				book.setNumBusiness(numPremium);
+		while (numBusiness < businessCapacity && numPremium > 0){
+			for(Passenger p: seats){
+				if (p instanceof Premium){
+					p.upgrade();
+					numBusiness++;
+					numPremium--;
+					book.setNumPremium(numPremium);
+					book.setNumBusiness(numBusiness);
+				}	
+			}	
+		}		
+		while (numPremium < premiumCapacity && numEconomy > 0){			
+			for(Passenger p:seats){		
+				if (p instanceof Economy && numPremium < premiumCapacity){
+					p.upgrade();
+					numEconomy--;
+					numPremium++;
+					book.setNumEconomy(numEconomy);
+					book.setNumBusiness(numPremium);
+				}
 			}
 		}
 	}
