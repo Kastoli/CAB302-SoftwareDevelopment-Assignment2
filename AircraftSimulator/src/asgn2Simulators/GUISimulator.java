@@ -277,8 +277,8 @@ public class GUISimulator extends JFrame implements Runnable {
 					JOptionPane.showMessageDialog(null, "Invalid Economy Modifier specified using Default Value instead.", "Error", JOptionPane.ERROR_MESSAGE);
 					t8.setText(Double.toString(Constants.DEFAULT_ECONOMY_PROB));
 				}
+
 				
-				run();
 			}
 		});
 		
@@ -302,14 +302,12 @@ public class GUISimulator extends JFrame implements Runnable {
 	@Override
 	public void run() {
 		// TODO Auto-generated method stub
-		
 	}
 
 	/**
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		new GUISimulator("Airline Simulator");
+		// TODO Auto-generated method stub
 	}
-
 }

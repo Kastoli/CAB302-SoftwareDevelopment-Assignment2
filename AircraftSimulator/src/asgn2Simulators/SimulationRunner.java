@@ -26,6 +26,8 @@ public class SimulationRunner {
 	 * see {@link asgn2Simulators.SimulationRunner#printErrorAndExit()}
 	 */
 	public static void main(String[] args) {
+		GUISimulator airlineSimulator = new GUISimulator("Airline Simulator");
+		
 		final int NUM_ARGS = 9; 
 		Simulator s = null; 
 		Log l = null; 
