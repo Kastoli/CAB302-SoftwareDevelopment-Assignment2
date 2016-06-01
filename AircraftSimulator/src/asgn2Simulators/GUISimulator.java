@@ -84,12 +84,12 @@ public class GUISimulator extends JFrame implements Runnable {
 	JPanel p14 = new JPanel();
 	
 	// Create Dataset Object
-	private XYSeries first = new XYSeries("First");
-	private XYSeries business = new XYSeries("Business");
-	private XYSeries premium = new XYSeries("Premium");
-	private XYSeries economy = new XYSeries("Economy");
-	private XYSeries total = new XYSeries("Total");
-	private XYSeries empty = new XYSeries("Empty");
+	private static XYSeries first = new XYSeries("First");
+	private static XYSeries business = new XYSeries("Business");
+	private static XYSeries premium = new XYSeries("Premium");
+	private static XYSeries economy = new XYSeries("Economy");
+	private static XYSeries total = new XYSeries("Total");
+	private static XYSeries empty = new XYSeries("Empty");
 	
 	/**
 	 * @param arg0
@@ -338,7 +338,7 @@ public class GUISimulator extends JFrame implements Runnable {
 		return dataset;
 	}
 	
-	public void addData(int series, double x, double y){
+	public static void addData(int series, double x, double y){
 		switch(series){
 			case 0:
 				first.add(x, y);

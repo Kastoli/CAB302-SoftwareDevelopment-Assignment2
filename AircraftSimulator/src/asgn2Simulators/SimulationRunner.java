@@ -10,6 +10,7 @@ import java.io.IOException;
 
 import asgn2Aircraft.AircraftException;
 import asgn2Passengers.PassengerException;
+import asgn2Aircraft.Bookings;
 
 /**
  * Class to operate the simulation, taking parameters and utility methods from the Simulator
@@ -140,6 +141,14 @@ public class SimulationRunner {
 			//Log progress 
 			this.log.logQREntries(time, sim);
 			this.log.logEntry(time,this.sim);
+			Bookings counts = sim.getFlights(time).getCurrentCounts();				
+			GUISimulator.addData(0, time, counts.getNumFirst());
+			GUISimulator.addData(1, time, counts.getNumBusiness());
+			GUISimulator.addData(2, time, counts.getNumPremium());
+			GUISimulator.addData(3, time, counts.getNumEconomy());
+			GUISimulator.addData(4, time, counts.getTotal());
+			GUISimulator.addData(5, time, counts.getAvailable());
+			
 		}
 		this.log.finalise(this.sim);
 	}
