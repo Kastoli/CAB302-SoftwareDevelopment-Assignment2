@@ -26,8 +26,9 @@ import javax.swing.SwingConstants;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 
-import org.jfree.chart.plot.Plot;
+import org.jfree.data.xy.XYDataset;
 import org.jfree.data.xy.XYSeries;
+import org.jfree.data.xy.XYSeriesCollection;
 
 /**
  * @author hogan
@@ -82,8 +83,13 @@ public class GUISimulator extends JFrame implements Runnable {
 	JPanel p13 = new JPanel();
 	JPanel p14 = new JPanel();
 	
-	// Private variable to hold chart data from simulation	
-	static Plot plotData;
+	// Create Dataset Object
+	private XYSeries first = new XYSeries("First");
+	private XYSeries business = new XYSeries("Business");
+	private XYSeries premium = new XYSeries("Premium");
+	private XYSeries economy = new XYSeries("Economy");
+	private XYSeries total = new XYSeries("Total");
+	private XYSeries empty = new XYSeries("Empty");
 	
 	/**
 	 * @param arg0
@@ -293,7 +299,7 @@ public class GUISimulator extends JFrame implements Runnable {
 		b2.addActionListener(new ActionListener(){
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				XYChartPanel.main(null);
+				XYChartPanel.main(null, createDataset());
 			}
 		});
 		
@@ -317,11 +323,41 @@ public class GUISimulator extends JFrame implements Runnable {
 		new GUISimulator("Airline Simulator");
 	}
 	
-	static public void setPlotData(Plot plot){
-		plotData = plot;
-	}
-	
 	static public void writeToTextArea(String string){
 		ta.append(string);
+	}
+	
+	private XYDataset createDataset(){
+		final XYSeriesCollection dataset = new XYSeriesCollection();
+		dataset.addSeries(first);
+		dataset.addSeries(business);
+		dataset.addSeries(premium);
+		dataset.addSeries(economy);
+		dataset.addSeries(total);
+		dataset.addSeries(empty);
+		return dataset;
+	}
+	
+	public void addData(int series, double x, double y){
+		switch(series){
+			case 0:
+				first.add(x, y);
+				break;
+			case 1:
+				business.add(x, y);
+				break;
+			case 2:
+				premium.add(x, y);
+				break;
+			case 3:
+				economy.add(x, y);
+				break;
+			case 4:
+				total.add(x, y);
+				break;
+			case 5:
+				empty.add(x, y);
+				break;
+		}
 	}
 }

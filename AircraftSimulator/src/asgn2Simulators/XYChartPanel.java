@@ -21,10 +21,10 @@ import org.jfree.ui.RefineryUtilities;
  *
  */
 @SuppressWarnings("serial")
-public class XYChartPanel extends ApplicationFrame {
-	public XYChartPanel(String windowTitle, String chartTitle){
+public class XYChartPanel extends ApplicationFrame {	
+	public XYChartPanel(String windowTitle, String chartTitle, XYSeriesCollection dataset){
 		super(windowTitle);
-		JFreeChart XYLineChart = ChartFactory.createXYLineChart(chartTitle, "X Axis", "Y Axis", createDataset(), PlotOrientation.VERTICAL, true, true, false);
+		JFreeChart XYLineChart = ChartFactory.createXYLineChart(chartTitle, "X Axis", "Y Axis", dataset, PlotOrientation.VERTICAL, true, true, false);
 		ChartPanel chartPanel = new ChartPanel(XYLineChart);
 		chartPanel.setPreferredSize(new java.awt.Dimension(800, 540));
 		XYPlot plot = XYLineChart.getXYPlot();
@@ -39,30 +39,8 @@ public class XYChartPanel extends ApplicationFrame {
 	    setContentPane( chartPanel );
 	}
 	
-	// Should we put this in log?
-	// Pass the dataset back as an arguement into the main?
-	private XYDataset createDataset(){
-		final XYSeries series1 = new XYSeries("series1");
-		series1.add(1.0, 1.0);
-		series1.add(2.0, 4.0);
-		series1.add(3.0, 3.0);
-		final XYSeries series2 = new XYSeries("series2");
-		series2.add(1.0, 4.0);
-		series2.add(2.0, 5.0);
-		series2.add(3.0, 6.0);
-		final XYSeries series3 = new XYSeries("series3");
-		series3.add(3.0, 4.0);
-		series3.add(4.0, 5.0);
-		series3.add(5.0, 4.0);
-		final XYSeriesCollection dataset = new XYSeriesCollection();
-		dataset.addSeries(series1);
-		dataset.addSeries(series2);
-		dataset.addSeries(series3);
-		return dataset;
-	}
-	
-	public static void main(String[] args){
-		XYChartPanel chart = new XYChartPanel("window title", "chart title");
+	public static void main(String[] args, XYSeriesCollection dataset){
+		XYChartPanel chart = new XYChartPanel("window title", "chart title", dataset);
 		chart.pack();
 		RefineryUtilities.centerFrameOnScreen(chart);
 		chart.setVisible(true);
