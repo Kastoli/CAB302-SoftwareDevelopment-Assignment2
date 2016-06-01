@@ -112,6 +112,7 @@ public abstract class Aircraft {
 				this.numFirst--;
 				book.setNumFirst(numFirst);
 				book.setTotal(numFirst + numBusiness + numPremium + numEconomy);
+				book.setAvailable(capacity - book.getTotal());
 				seats.remove(p);
 			} else {
 				throw new AircraftException("Passenger is not recorded in first");
@@ -122,6 +123,7 @@ public abstract class Aircraft {
 				this.numBusiness--;
 				book.setNumFirst(numBusiness);
 				book.setTotal(numFirst + numBusiness + numPremium + numEconomy);
+				book.setAvailable(capacity - book.getTotal());
 				seats.remove(p);
 			} else {
 				throw new AircraftException("Passenger is not recorded in business");
@@ -132,6 +134,7 @@ public abstract class Aircraft {
 				this.numPremium--;
 				book.setNumFirst(numPremium);
 				book.setTotal(numFirst + numBusiness + numPremium + numEconomy);
+				book.setAvailable(capacity - book.getTotal());
 				seats.remove(p);
 			} else {
 				throw new AircraftException("Passenger is not recorded in premium");
@@ -142,6 +145,7 @@ public abstract class Aircraft {
 				this.numEconomy--;
 				book.setNumFirst(numEconomy);
 				book.setTotal(numFirst + numBusiness + numPremium + numEconomy);
+				book.setAvailable(capacity - book.getTotal());
 				seats.remove(p);
 			} else {
 				throw new AircraftException("Passenger is not recorded in economy");
@@ -168,6 +172,7 @@ public abstract class Aircraft {
 				this.numFirst++;
 				book.setNumFirst(numFirst);
 				book.setTotal(numFirst + numBusiness + numPremium + numEconomy);
+				book.setAvailable(capacity - book.getTotal());
 				seats.add(p);
 			} else {
 				throw new AircraftException(p.noSeatsMsg());
@@ -178,6 +183,7 @@ public abstract class Aircraft {
 				this.numBusiness++;
 				book.setNumBusiness(numBusiness);
 				book.setTotal(numFirst + numBusiness + numPremium + numEconomy);
+				book.setAvailable(capacity - book.getTotal());
 				seats.add(p);
 			} else {
 				throw new AircraftException(p.noSeatsMsg());
@@ -186,8 +192,9 @@ public abstract class Aircraft {
 			if(numPremium < premiumCapacity){
 				p.confirmSeat(confirmationTime, departureTime);
 				this.numPremium++;
-				book.setNumBusiness(numPremium);
+				book.setNumPremium(numPremium);
 				book.setTotal(numFirst + numBusiness + numPremium + numEconomy);
+				book.setAvailable(capacity - book.getTotal());
 				seats.add(p);
 			} else {
 				throw new AircraftException(p.noSeatsMsg());
@@ -196,8 +203,9 @@ public abstract class Aircraft {
 			if(numEconomy < economyCapacity){
 				p.confirmSeat(confirmationTime, departureTime);
 				this.numEconomy++;
-				book.setNumBusiness(numEconomy);
+				book.setNumEconomy(numEconomy);
 				book.setTotal(numFirst + numBusiness + numPremium + numEconomy);
+				book.setAvailable(capacity - book.getTotal());
 				seats.add(p);
 			} else {
 				throw new AircraftException(noSeatsAvailableMsg(p));
@@ -432,7 +440,9 @@ public abstract class Aircraft {
 					numFirst++;
 					numBusiness--;
 					book.setNumFirst(numFirst);
-					book.setNumBusiness(numBusiness);			
+					book.setNumBusiness(numBusiness);
+					book.setTotal(numFirst + numBusiness + numPremium + numEconomy);
+					book.setAvailable(capacity - book.getTotal());
 				}	
 			}
 		}
@@ -444,6 +454,8 @@ public abstract class Aircraft {
 					numPremium--;
 					book.setNumPremium(numPremium);
 					book.setNumBusiness(numBusiness);
+					book.setTotal(numFirst + numBusiness + numPremium + numEconomy);
+					book.setAvailable(capacity - book.getTotal());
 				}	
 			}	
 		}		
@@ -455,6 +467,8 @@ public abstract class Aircraft {
 					numPremium++;
 					book.setNumEconomy(numEconomy);
 					book.setNumBusiness(numPremium);
+					book.setTotal(numFirst + numBusiness + numPremium + numEconomy);
+					book.setAvailable(capacity - book.getTotal());
 				}
 			}
 		}
