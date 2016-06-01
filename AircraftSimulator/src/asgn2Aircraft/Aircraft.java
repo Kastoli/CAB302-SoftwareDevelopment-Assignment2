@@ -112,6 +112,7 @@ public abstract class Aircraft {
 				this.numFirst--;
 				book.setNumFirst(numFirst);
 				book.setTotal(numFirst + numBusiness + numPremium + numEconomy);
+				book.setAvailable(capacity - book.getTotal());
 				seats.remove(p);
 			} else {
 				throw new AircraftException("Passenger is not recorded in first");
@@ -120,8 +121,9 @@ public abstract class Aircraft {
 			if(seats.contains(p)){
 				p.cancelSeat(cancellationTime);
 				this.numBusiness--;
-				book.setNumFirst(numBusiness);
+				book.setNumBusiness(numBusiness);
 				book.setTotal(numFirst + numBusiness + numPremium + numEconomy);
+				book.setAvailable(capacity - book.getTotal());
 				seats.remove(p);
 			} else {
 				throw new AircraftException("Passenger is not recorded in business");
@@ -130,8 +132,9 @@ public abstract class Aircraft {
 			if(seats.contains(p)){
 				p.cancelSeat(cancellationTime);
 				this.numPremium--;
-				book.setNumFirst(numPremium);
+				book.setNumPremium(numPremium);
 				book.setTotal(numFirst + numBusiness + numPremium + numEconomy);
+				book.setAvailable(capacity - book.getTotal());
 				seats.remove(p);
 			} else {
 				throw new AircraftException("Passenger is not recorded in premium");
@@ -140,8 +143,9 @@ public abstract class Aircraft {
 			if(seats.contains(p)){
 				p.cancelSeat(cancellationTime);
 				this.numEconomy--;
-				book.setNumFirst(numEconomy);
+				book.setNumEconomy(numEconomy);
 				book.setTotal(numFirst + numBusiness + numPremium + numEconomy);
+				book.setAvailable(capacity - book.getTotal());
 				seats.remove(p);
 			} else {
 				throw new AircraftException("Passenger is not recorded in economy");
@@ -168,6 +172,7 @@ public abstract class Aircraft {
 				this.numFirst++;
 				book.setNumFirst(numFirst);
 				book.setTotal(numFirst + numBusiness + numPremium + numEconomy);
+				book.setAvailable(capacity - book.getTotal());
 				seats.add(p);
 			} else {
 				throw new AircraftException(p.noSeatsMsg());
@@ -178,6 +183,7 @@ public abstract class Aircraft {
 				this.numBusiness++;
 				book.setNumBusiness(numBusiness);
 				book.setTotal(numFirst + numBusiness + numPremium + numEconomy);
+				book.setAvailable(capacity - book.getTotal());
 				seats.add(p);
 			} else {
 				throw new AircraftException(p.noSeatsMsg());
@@ -186,8 +192,9 @@ public abstract class Aircraft {
 			if(numPremium < premiumCapacity){
 				p.confirmSeat(confirmationTime, departureTime);
 				this.numPremium++;
-				book.setNumBusiness(numPremium);
+				book.setNumPremium(numPremium);
 				book.setTotal(numFirst + numBusiness + numPremium + numEconomy);
+				book.setAvailable(capacity - book.getTotal());
 				seats.add(p);
 			} else {
 				throw new AircraftException(p.noSeatsMsg());
@@ -196,8 +203,9 @@ public abstract class Aircraft {
 			if(numEconomy < economyCapacity){
 				p.confirmSeat(confirmationTime, departureTime);
 				this.numEconomy++;
-				book.setNumBusiness(numEconomy);
+				book.setNumEconomy(numEconomy);
 				book.setTotal(numFirst + numBusiness + numPremium + numEconomy);
+				book.setAvailable(capacity - book.getTotal());
 				seats.add(p);
 			} else {
 				throw new AircraftException(noSeatsAvailableMsg(p));
@@ -324,7 +332,7 @@ public abstract class Aircraft {
 	 * @return <code>List<Passenger></code> object containing the passengers.  
 	 */
 	public List<Passenger> getPassengers() {
-		return seats;
+		return new ArrayList<Passenger>(seats);
 	}
 	
 	/**
@@ -425,29 +433,43 @@ public abstract class Aircraft {
 	 * where possible to Premium.  
 	 */
 	public void upgradeBookings() { 
-		List<String> bookingsClass = new ArrayList<String>();
-		for (Passenger p: seats){
-			bookingsClass.add(Character.toString(p.getPassID().charAt(0)));
+		if (numFirst < firstCapacity && numBusiness > 0){
+			for(Passenger p: seats){
+				if(p instanceof Business && numFirst < firstCapacity && numBusiness > 0){
+					p.upgrade();
+					numFirst++;
+					numBusiness--;
+					book.setNumFirst(numFirst);
+					book.setNumBusiness(numBusiness);
+					book.setTotal(numFirst + numBusiness + numPremium + numEconomy);
+					book.setAvailable(capacity - book.getTotal());
+				}	
+			}
 		}
-		for(Passenger p: seats){
-			if(p instanceof Business && numFirst < firstCapacity){
-				p.upgrade();
-				numFirst++;
-				numBusiness--;
-				book.setNumFirst(numFirst);
-				book.setNumBusiness(numBusiness);
-			} else if (p instanceof Premium && numBusiness < businessCapacity){
-				p.upgrade();
-				numBusiness++;
-				numPremium--;
-				book.setNumPremium(numPremium);
-				book.setNumBusiness(numBusiness);
-			} else if (p instanceof Economy && numPremium < premiumCapacity){
-				p.upgrade();
-				numEconomy--;
-				numPremium++;
-				book.setNumEconomy(numEconomy);
-				book.setNumBusiness(numPremium);
+		if (numBusiness < businessCapacity && numPremium > 0){
+			for(Passenger p: seats){
+				if (p instanceof Premium && numBusiness < businessCapacity && numPremium > 0){
+					p.upgrade();
+					numBusiness++;
+					numPremium--;
+					book.setNumPremium(numPremium);
+					book.setNumBusiness(numBusiness);
+					book.setTotal(numFirst + numBusiness + numPremium + numEconomy);
+					book.setAvailable(capacity - book.getTotal());
+				}	
+			}	
+		}		
+		if (numPremium < premiumCapacity && numEconomy > 0){			
+			for(Passenger p:seats){		
+				if (p instanceof Economy && numPremium < premiumCapacity && numEconomy > 0){
+					p.upgrade();
+					numEconomy--;
+					numPremium++;
+					book.setNumEconomy(numEconomy);
+					book.setNumPremium(numPremium);
+					book.setTotal(numFirst + numBusiness + numPremium + numEconomy);
+					book.setAvailable(capacity - book.getTotal());
+				}
 			}
 		}
 	}
