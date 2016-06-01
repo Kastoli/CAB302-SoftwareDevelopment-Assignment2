@@ -34,7 +34,7 @@ import org.jfree.chart.plot.Plot;
 @SuppressWarnings("serial")
 public class GUISimulator extends JFrame implements Runnable {
 	// Create Text Area
-	JTextArea ta = new JTextArea("", 19, 69);
+	static JTextArea ta = new JTextArea("", 19, 69);
 	
 	// Create Labels
 	JLabel l1 = new JLabel("Simulation");
@@ -80,7 +80,7 @@ public class GUISimulator extends JFrame implements Runnable {
 	JPanel p14 = new JPanel();
 	
 	// Private variable to hold chart data from simulation
-	private Plot plot;
+	static Plot plotData;
 	
 	/**
 	 * @param arg0
@@ -317,11 +317,11 @@ public class GUISimulator extends JFrame implements Runnable {
 		new GUISimulator("Airline Simulator");
 	}
 	
-	public void setPlotData(Plot plot){
-		this.plot = plot;
+	static public void setPlotData(Plot plot){
+		plotData = plot;
 	}
 	
-	public void writeToTextArea(String string){
+	static public void writeToTextArea(String string){
 		ta.append(string);
 	}
 }
