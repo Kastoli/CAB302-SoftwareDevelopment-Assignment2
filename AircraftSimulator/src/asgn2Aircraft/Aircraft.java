@@ -121,7 +121,7 @@ public abstract class Aircraft {
 			if(seats.contains(p)){
 				p.cancelSeat(cancellationTime);
 				this.numBusiness--;
-				book.setNumFirst(numBusiness);
+				book.setNumBusiness(numBusiness);
 				book.setTotal(numFirst + numBusiness + numPremium + numEconomy);
 				book.setAvailable(capacity - book.getTotal());
 				seats.remove(p);
@@ -132,7 +132,7 @@ public abstract class Aircraft {
 			if(seats.contains(p)){
 				p.cancelSeat(cancellationTime);
 				this.numPremium--;
-				book.setNumFirst(numPremium);
+				book.setNumPremium(numPremium);
 				book.setTotal(numFirst + numBusiness + numPremium + numEconomy);
 				book.setAvailable(capacity - book.getTotal());
 				seats.remove(p);
@@ -143,7 +143,7 @@ public abstract class Aircraft {
 			if(seats.contains(p)){
 				p.cancelSeat(cancellationTime);
 				this.numEconomy--;
-				book.setNumFirst(numEconomy);
+				book.setNumEconomy(numEconomy);
 				book.setTotal(numFirst + numBusiness + numPremium + numEconomy);
 				book.setAvailable(capacity - book.getTotal());
 				seats.remove(p);
