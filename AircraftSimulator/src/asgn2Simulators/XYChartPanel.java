@@ -38,7 +38,7 @@ public class XYChartPanel extends ApplicationFrame {
 	}
 	
 	public static void main(XYDataset dataset){
-		XYChartPanel chart = new XYChartPanel("Simulation Graph 1", "Simulation Results", dataset);
+		XYChartPanel chart = new XYChartPanel("Simulation Graph", "Simulation Results", dataset);
 		chart.pack();
 		RefineryUtilities.centerFrameOnScreen(chart);
 		chart.setVisible(true);
