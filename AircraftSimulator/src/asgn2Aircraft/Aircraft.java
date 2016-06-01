@@ -324,7 +324,7 @@ public abstract class Aircraft {
 	 * @return <code>List<Passenger></code> object containing the passengers.  
 	 */
 	public List<Passenger> getPassengers() {
-		return seats;
+		return new ArrayList<Passenger>(seats);
 	}
 	
 	/**
