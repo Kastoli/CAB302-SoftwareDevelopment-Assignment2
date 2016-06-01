@@ -278,7 +278,7 @@ public class GUISimulator extends JFrame implements Runnable {
 					t8.setText(Double.toString(Constants.DEFAULT_ECONOMY_PROB));
 				}
 				
-				String[] args = new String[]{t1.getText(), t3.getText(), t2.getText(), Double.toString(Constants.DEFAULT_DAILY_BOOKING_SD), t5.getText(), t6.getText(), t7.getText(), t8.getText(), t4.getText()};
+				String[] args = new String[]{t1.getText(), t3.getText(), t2.getText(), Double.toString(Constants.DEFAULT_DAILY_BOOKING_SD), t5.getText(), t6.getText(), t8.getText(), t7.getText(), t4.getText()};
 				SimulationRunner.main(args);
 			}
 		});
