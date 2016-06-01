@@ -36,7 +36,7 @@ import org.jfree.data.xy.XYSeriesCollection;
  */
 @SuppressWarnings("serial")
 public class GUISimulator extends JFrame implements Runnable {
-	// Create Text Area
+	// Create Text Area & Make it scrollable
 	static JTextArea ta = new JTextArea("", 19, 69);
 	JScrollPane scroll = new JScrollPane(ta, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
 	
@@ -84,7 +84,7 @@ public class GUISimulator extends JFrame implements Runnable {
 	JPanel p13 = new JPanel();
 	JPanel p14 = new JPanel();
 	
-	// Create Dataset Object
+	// Create dataset Series'
 	private static XYSeries first = new XYSeries("First");
 	private static XYSeries business = new XYSeries("Business");
 	private static XYSeries premium = new XYSeries("Premium");
@@ -166,7 +166,11 @@ public class GUISimulator extends JFrame implements Runnable {
 		// Add Panels to Window
 		add(p1);
 
-		// Disable Button by Default
+		/**
+		 * Charts cannot be generated until the dataset series'
+		 * are populated with data, and combined into a dataset
+		 */
+		// Disable Chart Buttons by Default
 		b2.setEnabled(false);
 		b3.setEnabled(false);
 		
@@ -184,7 +188,16 @@ public class GUISimulator extends JFrame implements Runnable {
 			public void removeUpdate(DocumentEvent arg0) {
 				changeColour();
 			}
-			
+			/**
+			 * If there is no text in the TextField no change
+			 * in colour is noticible, so do nothing.
+			 * 
+			 * If the value inside the TextField is invalid
+			 * change the text colour to red.
+			 * 
+			 * When the text is cahnged to be valid again change
+			 *  the colour to black.
+			 */
 			public void changeColour(){
 				if(!t3.getText().equals("")){
 					try{
@@ -200,6 +213,12 @@ public class GUISimulator extends JFrame implements Runnable {
 			}
 		});
 		
+		/**
+		 * When the Run Simulation button is pressed, evaluate
+		 * all of the data in the text fields, if invalid data
+		 * is present, provide the user with an error and replace
+		 * the value with it's default.
+		 */
 		// Add Event Listeners to Buttons
 		b1.addActionListener(new ActionListener(){
 			@Override
@@ -295,13 +314,17 @@ public class GUISimulator extends JFrame implements Runnable {
 					t8.setText(Double.toString(Constants.DEFAULT_ECONOMY_PROB));
 				}
 				
+				// Run the main method from SimulationRunner
 				String[] args = new String[]{t1.getText(), t3.getText(), t2.getText(), Double.toString(Constants.DEFAULT_DAILY_BOOKING_SD), t5.getText(), t6.getText(), t8.getText(), t7.getText(), t4.getText()};
 				SimulationRunner.main(args);
+				
+				// Enable the chart buttons.
 				b2.setEnabled(true);
 				b3.setEnabled(true);
 			}
 		});
 		
+		// Open chart 1.
 		b2.addActionListener(new ActionListener(){
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -309,6 +332,7 @@ public class GUISimulator extends JFrame implements Runnable {
 			}
 		});
 		
+		// Open chart 2.
 		b3.addActionListener(new ActionListener(){
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -325,21 +349,30 @@ public class GUISimulator extends JFrame implements Runnable {
 	 */
 	@Override
 	public void run() {
-		// TODO Auto-generated method stub
+		// Not sure what is supposed to go here.
 	}
 
 	/**
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 		new GUISimulator("Airline Simulator");
 	}
 	
+	/**
+	 * A simple helper method for writing to the GUI TextArea.
+	 * 
+	 * @param string Text to add to text area.
+	 */
 	static public void writeToTextArea(String string){
 		ta.append(string);
 	}
 	
+	/**
+	 * Method to create the dataset for the first chart.
+	 * 
+	 * @return A dataset object.
+	 */
 	private XYDataset createDataset(){
 		final XYSeriesCollection dataset = new XYSeriesCollection();
 		dataset.addSeries(first);
@@ -351,6 +384,11 @@ public class GUISimulator extends JFrame implements Runnable {
 		return dataset;
 	}
 	
+	/**
+	 * Method to create the dataset or the secon chart.
+	 * 
+	 * @return A dataset object.
+	 */
 	private XYDataset createOtherDataset(){
 		final XYSeriesCollection dataset = new XYSeriesCollection();
 		dataset.addSeries(queued);
@@ -358,6 +396,13 @@ public class GUISimulator extends JFrame implements Runnable {
 		return dataset;
 	}
 	
+	/**
+	 * A simple helper method for recording the chart data.
+	 * 
+	 * @param series Integer denoting which series to input the data to.
+	 * @param x Double containing the X axis value of the data.
+	 * @param y Double containing the Y axis value of the data.
+	 */
 	public static void addData(int series, double x, double y){
 		switch(series){
 			case 0:

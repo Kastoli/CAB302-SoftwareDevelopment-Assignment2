@@ -16,7 +16,15 @@ import org.jfree.ui.RefineryUtilities;
  *
  */
 @SuppressWarnings("serial")
-public class XYChartPanel extends ApplicationFrame {	
+public class XYChartPanel extends ApplicationFrame {
+	
+	/**
+	 * Constructor for the XYChartPanel (Chart and Window)
+	 * 
+	 * @param windowTitle String containing the window title.
+	 * @param chartTitle String containing the chart title.
+	 * @param dataset Dataset containing the chart data.
+	 */
 	public XYChartPanel(String windowTitle, String chartTitle, XYDataset dataset){
 		super(windowTitle);
 		JFreeChart XYLineChart = ChartFactory.createXYLineChart(chartTitle, "Days", "Passengers", dataset, PlotOrientation.VERTICAL, true, true, false);
@@ -28,6 +36,11 @@ public class XYChartPanel extends ApplicationFrame {
 	    setContentPane(chartPanel);
 	}
 	
+	/**
+	 * Main loop for the XYChartPanel.
+	 * 
+	 * @param dataset
+	 */
 	public static void main(XYDataset dataset){
 		XYChartPanel chart = new XYChartPanel("Simulation Graph", "Simulation Results", dataset);
 		chart.pack();

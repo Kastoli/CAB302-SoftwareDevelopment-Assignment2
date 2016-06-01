@@ -48,6 +48,10 @@ accurately represents my contribution to this project.
 
 Additional Notes
 ---
+Our GUI Implementation is run by executing GUISimulator,
+running SimulationRunner alone sufficiently produces the
+log based implementation.
+
 As we were unable to find mention of if the first chart
 should open automatically or not, we decided to implement
 it behind a button press.
