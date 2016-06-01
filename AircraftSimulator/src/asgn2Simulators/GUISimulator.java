@@ -299,7 +299,7 @@ public class GUISimulator extends JFrame implements Runnable {
 		b2.addActionListener(new ActionListener(){
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				XYChartPanel.main(null, createDataset());
+				XYChartPanel.main(createDataset());
 			}
 		});
 		

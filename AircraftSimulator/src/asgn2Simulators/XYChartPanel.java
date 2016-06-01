@@ -10,8 +10,6 @@ import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.chart.plot.XYPlot;
 import org.jfree.chart.renderer.xy.XYLineAndShapeRenderer;
 import org.jfree.data.xy.XYDataset;
-import org.jfree.data.xy.XYSeries;
-import org.jfree.data.xy.XYSeriesCollection;
 import org.jfree.ui.ApplicationFrame;
 import org.jfree.ui.RefineryUtilities; 
 
@@ -22,7 +20,7 @@ import org.jfree.ui.RefineryUtilities;
  */
 @SuppressWarnings("serial")
 public class XYChartPanel extends ApplicationFrame {	
-	public XYChartPanel(String windowTitle, String chartTitle, XYSeriesCollection dataset){
+	public XYChartPanel(String windowTitle, String chartTitle, XYDataset dataset){
 		super(windowTitle);
 		JFreeChart XYLineChart = ChartFactory.createXYLineChart(chartTitle, "X Axis", "Y Axis", dataset, PlotOrientation.VERTICAL, true, true, false);
 		ChartPanel chartPanel = new ChartPanel(XYLineChart);
@@ -39,31 +37,10 @@ public class XYChartPanel extends ApplicationFrame {
 	    setContentPane( chartPanel );
 	}
 	
-	public static void main(String[] args, XYSeriesCollection dataset){
+	public static void main(XYDataset dataset){
 		XYChartPanel chart = new XYChartPanel("window title", "chart title", dataset);
 		chart.pack();
 		RefineryUtilities.centerFrameOnScreen(chart);
 		chart.setVisible(true);
 	}
-	
-	
-	/*
-	public ChartPanel(String arg0, Plot plot) throws HeadlessException {
-		super(arg0);
-		
-		setSize(800,540);
-		setResizable(false);
-		
-		JFreeChart chart = new JFreeChart(plot);
-		
-		JPanel chartJPanel = new JPanel();
-		chartJPanel.setLayout(new BorderLayout());
-		
-		org.jfree.chart.ChartPanel chartPanel = new org.jfree.chart.ChartPanel(chart);
-		
-		chartJPanel.add(chartPanel,BorderLayout.CENTER);
-		
-		add(chartJPanel);
-	}
-	*/
 }

@@ -13,10 +13,6 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
-import org.jfree.data.xy.XYDataset;
-import org.jfree.data.xy.XYSeries;
-import org.jfree.data.xy.XYSeriesCollection;
-
 import asgn2Passengers.Business;
 import asgn2Passengers.First;
 import asgn2Passengers.Passenger;
