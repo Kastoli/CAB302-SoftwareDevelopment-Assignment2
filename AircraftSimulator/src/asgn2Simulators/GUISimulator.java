@@ -19,6 +19,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
@@ -35,6 +36,7 @@ import org.jfree.chart.plot.Plot;
 public class GUISimulator extends JFrame implements Runnable {
 	// Create Text Area
 	static JTextArea ta = new JTextArea("", 19, 69);
+	JScrollPane scroll = new JScrollPane(ta, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
 	
 	// Create Labels
 	JLabel l1 = new JLabel("Simulation");
@@ -97,7 +99,7 @@ public class GUISimulator extends JFrame implements Runnable {
 		// Setup Panels
 		p1.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 		p1.add(p13);
-			p13.add(ta);
+			p13.add(scroll);
 		p1.add(p14);
 			p14.setLayout(new GridLayout(0, 3, 80, 0));
 			p14.add(p2);
