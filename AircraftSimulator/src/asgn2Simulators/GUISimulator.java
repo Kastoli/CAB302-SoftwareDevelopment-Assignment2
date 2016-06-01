@@ -152,6 +152,9 @@ public class GUISimulator extends JFrame implements Runnable {
 
 		// Add Panels to Window
 		add(p1);
+
+		// Disable Button by Default
+		b2.setEnabled(false);
 		
 		// Add Event Listeners to Text Fields
 		t3.getDocument().addDocumentListener(new DocumentListener(){
@@ -280,6 +283,7 @@ public class GUISimulator extends JFrame implements Runnable {
 				
 				String[] args = new String[]{t1.getText(), t3.getText(), t2.getText(), Double.toString(Constants.DEFAULT_DAILY_BOOKING_SD), t5.getText(), t6.getText(), t8.getText(), t7.getText(), t4.getText()};
 				SimulationRunner.main(args);
+				b2.setEnabled(true);
 			}
 		});
 		
