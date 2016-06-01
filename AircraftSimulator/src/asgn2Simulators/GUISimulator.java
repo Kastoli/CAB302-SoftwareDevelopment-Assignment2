@@ -378,15 +378,10 @@ public class GUISimulator extends JFrame implements Runnable {
 			case 5:
 				empty.add(x, y);
 				break;
-		}
-	}
-	
-	public static void addOtherData(int series, double x, double y){
-		switch(series){
-			case 0:
+			case 6:
 				queued.add(x, y);
 				break;
-			case 1:
+			case 7:
 				refused.add(x, y);
 				break;
 		}
