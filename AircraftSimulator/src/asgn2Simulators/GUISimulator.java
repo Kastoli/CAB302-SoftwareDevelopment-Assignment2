@@ -290,8 +290,8 @@ public class GUISimulator extends JFrame implements Runnable {
 		b2.addActionListener(new ActionListener(){
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				if(plot != null){
-					ChartPanel chart = new ChartPanel(arg0, plot);
+				if(plotData != null){
+					ChartPanel chart = new ChartPanel(arg0, plotData);
 					chart.setVisible(true);
 				}
 			}

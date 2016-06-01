@@ -102,6 +102,8 @@ public class Log {
 		writer.write("\n" + time + ": End of Simulation\n");
 		writer.write(sim.finalState());
 		writer.close();
+		GUISimulator.writeToTextArea("\n" + time + ": End of Simulation\n");
+		GUISimulator.writeToTextArea(sim.finalState());
 		
 		if (Log.SAVE_STATUS) {
 			detWriter.write("\n" + time + ": End of Simulation\n");
@@ -122,6 +124,9 @@ public class Log {
 		writer.write(sim.toString() + "\n");
 		String capacities = sim.getFlights(Constants.FIRST_FLIGHT).initialState();
 		writer.write(capacities);
+		GUISimulator.writeToTextArea(getLogTime() + ": Start of Simulation\n");
+		GUISimulator.writeToTextArea(sim.toString() + "\n");
+		GUISimulator.writeToTextArea(capacities);
 	}
 	
 	/**
@@ -136,6 +141,7 @@ public class Log {
 	public void logEntry(int time,Simulator sim) throws IOException, SimulationException {
 		boolean flying = (time >= Constants.FIRST_FLIGHT);
 		writer.write(sim.getSummary(time, flying));
+		GUISimulator.writeToTextArea(sim.getSummary(time, flying));
 	}
 	
 	/**
