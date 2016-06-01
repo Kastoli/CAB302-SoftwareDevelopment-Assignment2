@@ -1,0 +1,56 @@
+Student Names & Student Numbers
+---
+
+Liam Dinsdale - 09285281
+Bryce Rochecouste - 08569053
+
+
+Summary of Constribution
+---
+
+Liam Dinsdale
+
+Passenger.java
+Economy.Java
+Premium.java
+Business.java
+First.java
+PassengerTests.java
+EconomyTests.java
+PremiumTests.java
+FirstTests.java
+GUISimulator.java
+XYChartPanel.java
+repo.log
+statement.txt
+
+
+Bryce Rochecouste
+
+Aircraft.java
+A380.java
+B747.java
+Bookings.java
+AircraftTests.java
+Log.java
+SimulationRunner.java
+GUI Testing Powerpoint
+
+
+Statement of Summary
+---
+I, Liam Dinsdale, Agree that the above summary
+accurately represents my contribution to this project.
+
+*** Your Statement Here ***
+
+
+Additional Notes
+---
+As we were unable to find mention of if the first chart
+should open automatically or not, we decided to implement
+it behind a button press.
+
+When any of the windows, the main simulator or either
+chart is closed all other open windows are also closed,
+this is an intentional design decision.
