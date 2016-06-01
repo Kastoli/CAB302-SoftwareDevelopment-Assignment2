@@ -316,4 +316,12 @@ public class GUISimulator extends JFrame implements Runnable {
 		// TODO Auto-generated method stub
 		new GUISimulator("Airline Simulator");
 	}
+	
+	public void setPlotData(Plot plot){
+		this.plot = plot;
+	}
+	
+	public void writeToTextArea(String string){
+		ta.append(string);
+	}
 }
