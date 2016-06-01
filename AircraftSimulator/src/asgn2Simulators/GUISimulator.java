@@ -27,6 +27,7 @@ import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 
 import org.jfree.chart.plot.Plot;
+import org.jfree.data.xy.XYSeries;
 
 /**
  * @author hogan
@@ -81,7 +82,7 @@ public class GUISimulator extends JFrame implements Runnable {
 	JPanel p13 = new JPanel();
 	JPanel p14 = new JPanel();
 	
-	// Private variable to hold chart data from simulation
+	// Private variable to hold chart data from simulation	
 	static Plot plotData;
 	
 	/**
@@ -292,10 +293,7 @@ public class GUISimulator extends JFrame implements Runnable {
 		b2.addActionListener(new ActionListener(){
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				if(plotData != null){
-					ChartPanel chart = new ChartPanel(arg0, plotData);
-					chart.setVisible(true);
-				}
+				XYChartPanel.main(null);
 			}
 		});
 		
