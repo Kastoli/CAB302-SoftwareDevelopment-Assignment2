@@ -459,14 +459,14 @@ public abstract class Aircraft {
 				}	
 			}	
 		}		
-		 if (numPremium < premiumCapacity && numEconomy > 0){			
+		if (numPremium < premiumCapacity && numEconomy > 0){			
 			for(Passenger p:seats){		
 				if (p instanceof Economy && numPremium < premiumCapacity && numEconomy > 0){
 					p.upgrade();
 					numEconomy--;
 					numPremium++;
 					book.setNumEconomy(numEconomy);
-					book.setNumBusiness(numPremium);
+					book.setNumPremium(numPremium);
 					book.setTotal(numFirst + numBusiness + numPremium + numEconomy);
 					book.setAvailable(capacity - book.getTotal());
 				}
