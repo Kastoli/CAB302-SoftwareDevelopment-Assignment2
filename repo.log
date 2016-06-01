@@ -1,0 +1,1245 @@
+--------------------------------------------------
+Git Log for Passenger Branch
+--------------------------------------------------
+
+*   2d43bb6 : Merge remote-tracking branch 'refs/remotes/origin/master' into passenger
+|\  
+| *   1e4b03d : Merge remote-tracking branch 'refs/remotes/origin/passenger-tests'
+| |\  
+| | * 277e177 : Added Unit Tests and Minor Fixes
+| | *   49b2693 : Merge remote-tracking branch 'refs/remotes/origin/master' into passenger-tests
+| | |\  
+| | |/  
+| |/|   
+| * |   7abb21b : Merge remote-tracking branch 'refs/remotes/origin/aircraft'
+| |\ \  
+| | |/  
+| |/|   
+| | * e804dbf : upgrade completed
+| | *   b2f2166 : Merge remote-tracking branch 'refs/remotes/origin/master' into aircraft
+| | |\  
+| | |/  
+| |/|   
+| * | 87c4585 : Updated how upgrade() handles passID changes
+| | * 045e58c : some changes in upgradeBookings()
+| | * a526199 : undo bad upgrade work
+| | * 427c361 : A380 finished
+| | * 4f53092 : finished aircraft (except upgrade)
+| | *   26ed076 : Merge remote-tracking branch 'refs/remotes/origin/master' into aircraft
+| | |\  
+| | |/  
+| |/|   
+| | * de6534c : aircraft basic methods completed
+| | *   b25e712 : Merge remote-tracking branch 'refs/remotes/origin/master' into aircraft
+| | |\  
+| | * \   0c90865 : Merge remote-tracking branch 'refs/remotes/origin/master' into aircraft
+| | |\ \  
+| | * | | d3307e9 : Merge remote-tracking branch 'refs/remotes/origin/master' into aircraft
+| | * | | e19ba69 : testpush
+* | | | |   45cc506 : Merge remote-tracking branch 'refs/remotes/origin/master' into passenger
+|\ \ \ \ \  
+| |/ / / /  
+| * | | |   3e4b957 : Merge remote-tracking branch 'refs/remotes/origin/economy'
+| |\ \ \ \  
+| | * | | | b134188 : Finished implementing economy
+| |/ / / /  
+| * | | |   770925f : Merge remote-tracking branch 'refs/remotes/origin/premium'
+| |\ \ \ \  
+| | * | | | 2867423 : Finished implementing premium
+| | * | | |   da6f41c : Merge remote-tracking branch 'refs/remotes/origin/master' into premium
+| | |\ \ \ \  
+| | |/ / / /  
+| |/| | | |   
+| * | | | |   cd5a593 : Merge remote-tracking branch 'refs/remotes/origin/business'
+| |\ \ \ \ \  
+| | |/ / / /  
+| |/| | | |   
+| | * | | | 4991624 : Removed accidental comment.
+| * | | | |   ec902ec : Merge remote-tracking branch 'refs/remotes/origin/business'
+| |\ \ \ \ \  
+| | |/ / / /  
+| | * | | | 3a59b16 : Finished Implementing Business
+| |/ / / /  
+| * | | |   68b52e2 : Merge remote-tracking branch 'refs/remotes/origin/first'
+| |\ \ \ \  
+| | * | | | b357888 : Finished implementing first
+| | * | | |   53ae344 : Merge remote-tracking branch 'refs/remotes/origin/master' into first
+| | |\ \ \ \  
+| | |/ / / /  
+| |/| | | |   
+| * | | | |   011623f : Merge remote-tracking branch 'refs/remotes/origin/passenger'
+| |\ \ \ \ \  
+| |/ / / / /  
+|/| | | | /   
+| | |_|_|/    
+| |/| | |     
+* | | | | c592867 : Implemented copyPassengerState
+* | | | | 58fa0f8 : Fixed a typo.
+* | | | | a35aeb8 : Clean Up, Minor Fixes, and Detailed Exceptions
+* | | | |   f4b1330 : Merge remote-tracking branch 'refs/remotes/origin/master' into passenger
+|\ \ \ \ \  
+| |/ / / /  
+| | * | |   432d321 : Merge remote-tracking branch 'refs/remotes/origin/master' into first
+| | |\ \ \  
+| | |/ / /  
+| |/| | |   
+| * | | | c708096 : Fixing Explainations
+| | |_|/  
+| |/| |   
+| * | | 58c5937 : Explaining Github
+| | |/  
+| |/|   
+| | * 9014eeb : Partial completion of first.java
+| |/  
+| *   ed8c342 : Merge remote-tracking branch 'refs/remotes/origin/passenger'
+| |\  
+| |/  
+|/|   
+* | 0037241 : Finished passenger.java
+* |   a6074c0 : Merge remote-tracking branch 'refs/remotes/origin/master' into passenger
+|\ \  
+* | | f564f95 : Fixed .gitignore
+* | | 043e2dd : Updated .gitignore
+* | | bd02a34 : Updated Passenger Class
+* | |   6759abb : Merge remote-tracking branch 'refs/remotes/origin/master' into passenger
+|\ \ \  
+* | | | 7041b8b : Partial Implementation of Passenger Abstract Class
+* | | | 32e82b0 : Added .gitignore
+| | | * 493abdd : Updated Javadoc to v1.1
+| | |/  
+| | * 4396b6d : Updated .gitignore
+| |/  
+| * ae58e6a : Added .gitignore to master
+|/  
+* d687282 : Updated Code Drop + Cleanup
+* a18edd6 : Revert "Cleaning Up Master"
+* e8e30ad : Cleaning Up Master
+* 199d50a : Uploaded Base Code Drop
+* be163a4 : Added Specification
+* b38bf63 : Cleaning Up
+* 39f4df1 : Test Push
+
+
+
+--------------------------------------------------
+Git Log for Aircraft Branch
+--------------------------------------------------
+
+* b777934 : tests
+* 48189dd : Commenting
+* 9ed7e9d : tests
+* 7bd6b5f : more tests, minor changes to aircraft
+* 3949a98 : tests
+*   221c82e : Merge remote-tracking branch 'refs/remotes/origin/master' into aircraft
+|\  
+| * 9970611 : instanceof changes
+| * 3b6c519 : Update PassengerTests.java
+| *   1e4b03d : Merge remote-tracking branch 'refs/remotes/origin/passenger-tests'
+| |\  
+| | * 277e177 : Added Unit Tests and Minor Fixes
+| | *   49b2693 : Merge remote-tracking branch 'refs/remotes/origin/master' into passenger-tests
+| | |\  
+| | |/  
+| |/|   
+* | |   1f3f411 : Merge remote-tracking branch 'refs/remotes/origin/master' into aircraft
+|\ \ \  
+| |/ /  
+| * |   7abb21b : Merge remote-tracking branch 'refs/remotes/origin/aircraft'
+| |\ \  
+| |/ /  
+|/| /   
+| |/    
+* | e804dbf : upgrade completed
+* |   b2f2166 : Merge remote-tracking branch 'refs/remotes/origin/master' into aircraft
+|\ \  
+| |/  
+| * 87c4585 : Updated how upgrade() handles passID changes
+* | 045e58c : some changes in upgradeBookings()
+* | a526199 : undo bad upgrade work
+* | 427c361 : A380 finished
+* | 4f53092 : finished aircraft (except upgrade)
+* |   26ed076 : Merge remote-tracking branch 'refs/remotes/origin/master' into aircraft
+|\ \  
+| |/  
+| *   3e4b957 : Merge remote-tracking branch 'refs/remotes/origin/economy'
+| |\  
+| | * b134188 : Finished implementing economy
+| |/  
+| *   770925f : Merge remote-tracking branch 'refs/remotes/origin/premium'
+| |\  
+| | * 2867423 : Finished implementing premium
+| | *   da6f41c : Merge remote-tracking branch 'refs/remotes/origin/master' into premium
+| | |\  
+| | |/  
+| |/|   
+| * |   cd5a593 : Merge remote-tracking branch 'refs/remotes/origin/business'
+| |\ \  
+| | |/  
+| |/|   
+| | * 4991624 : Removed accidental comment.
+| * |   ec902ec : Merge remote-tracking branch 'refs/remotes/origin/business'
+| |\ \  
+| | |/  
+| | * 3a59b16 : Finished Implementing Business
+| |/  
+| *   68b52e2 : Merge remote-tracking branch 'refs/remotes/origin/first'
+| |\  
+| | * b357888 : Finished implementing first
+| | *   53ae344 : Merge remote-tracking branch 'refs/remotes/origin/master' into first
+| | |\  
+| | |/  
+| |/|   
+| * |   011623f : Merge remote-tracking branch 'refs/remotes/origin/passenger'
+| |\ \  
+| | * | c592867 : Implemented copyPassengerState
+| | * | 58fa0f8 : Fixed a typo.
+| | * | a35aeb8 : Clean Up, Minor Fixes, and Detailed Exceptions
+| | * |   f4b1330 : Merge remote-tracking branch 'refs/remotes/origin/master' into passenger
+| | |\ \  
+| | |/ /  
+| |/| |   
+| | | *   432d321 : Merge remote-tracking branch 'refs/remotes/origin/master' into first
+| | | |\  
+| | |_|/  
+| |/| |   
+| | | * 9014eeb : Partial completion of first.java
+* | | | de6534c : aircraft basic methods completed
+* | | |   b25e712 : Merge remote-tracking branch 'refs/remotes/origin/master' into aircraft
+|\ \ \ \  
+| |/ / /  
+| * | | c708096 : Fixing Explainations
+* | | |   0c90865 : Merge remote-tracking branch 'refs/remotes/origin/master' into aircraft
+|\ \ \ \  
+| |/ / /  
+| * | | 58c5937 : Explaining Github
+| | |/  
+| |/|   
+* | | d3307e9 : Merge remote-tracking branch 'refs/remotes/origin/master' into aircraft
+* | | e19ba69 : testpush
+|/ /  
+* |   ed8c342 : Merge remote-tracking branch 'refs/remotes/origin/passenger'
+|\ \  
+| |/  
+| * 0037241 : Finished passenger.java
+| *   a6074c0 : Merge remote-tracking branch 'refs/remotes/origin/master' into passenger
+| |\  
+| * | f564f95 : Fixed .gitignore
+| * | 043e2dd : Updated .gitignore
+| * | bd02a34 : Updated Passenger Class
+| * |   6759abb : Merge remote-tracking branch 'refs/remotes/origin/master' into passenger
+| |\ \  
+| * | | 7041b8b : Partial Implementation of Passenger Abstract Class
+| * | | 32e82b0 : Added .gitignore
+* | | | 493abdd : Updated Javadoc to v1.1
+| |_|/  
+|/| |   
+* | | 4396b6d : Updated .gitignore
+| |/  
+|/|   
+* | ae58e6a : Added .gitignore to master
+|/  
+* d687282 : Updated Code Drop + Cleanup
+* a18edd6 : Revert "Cleaning Up Master"
+* e8e30ad : Cleaning Up Master
+* 199d50a : Uploaded Base Code Drop
+* be163a4 : Added Specification
+* b38bf63 : Cleaning Up
+* 39f4df1 : Test Push
+
+
+
+--------------------------------------------------
+Git Log for Economy Branch
+--------------------------------------------------
+
+*   d3008ec : Merge remote-tracking branch 'refs/remotes/origin/master' into economy
+|\  
+| *   1e4b03d : Merge remote-tracking branch 'refs/remotes/origin/passenger-tests'
+| |\  
+| | * 277e177 : Added Unit Tests and Minor Fixes
+| | *   49b2693 : Merge remote-tracking branch 'refs/remotes/origin/master' into passenger-tests
+| | |\  
+| | |/  
+| |/|   
+| * |   7abb21b : Merge remote-tracking branch 'refs/remotes/origin/aircraft'
+| |\ \  
+| | |/  
+| |/|   
+| | * e804dbf : upgrade completed
+| | *   b2f2166 : Merge remote-tracking branch 'refs/remotes/origin/master' into aircraft
+| | |\  
+| | |/  
+| |/|   
+| * | 87c4585 : Updated how upgrade() handles passID changes
+| | * 045e58c : some changes in upgradeBookings()
+| | * a526199 : undo bad upgrade work
+| | * 427c361 : A380 finished
+| | * 4f53092 : finished aircraft (except upgrade)
+| | *   26ed076 : Merge remote-tracking branch 'refs/remotes/origin/master' into aircraft
+| | |\  
+| | |/  
+| |/|   
+| | * de6534c : aircraft basic methods completed
+| | *   b25e712 : Merge remote-tracking branch 'refs/remotes/origin/master' into aircraft
+| | |\  
+| | * \   0c90865 : Merge remote-tracking branch 'refs/remotes/origin/master' into aircraft
+| | |\ \  
+| | * | | d3307e9 : Merge remote-tracking branch 'refs/remotes/origin/master' into aircraft
+| | * | | e19ba69 : testpush
+* | | | |   0de33ec : Merge remote-tracking branch 'refs/remotes/origin/master' into economy
+|\ \ \ \ \  
+| |/ / / /  
+| * | | |   3e4b957 : Merge remote-tracking branch 'refs/remotes/origin/economy'
+| |\ \ \ \  
+| |/ / / /  
+|/| | | |   
+* | | | | b134188 : Finished implementing economy
+|/ / / /  
+* | | |   770925f : Merge remote-tracking branch 'refs/remotes/origin/premium'
+|\ \ \ \  
+| * | | | 2867423 : Finished implementing premium
+| * | | |   da6f41c : Merge remote-tracking branch 'refs/remotes/origin/master' into premium
+| |\ \ \ \  
+| |/ / / /  
+|/| | | |   
+* | | | |   cd5a593 : Merge remote-tracking branch 'refs/remotes/origin/business'
+|\ \ \ \ \  
+| |/ / / /  
+|/| | | |   
+| * | | | 4991624 : Removed accidental comment.
+* | | | |   ec902ec : Merge remote-tracking branch 'refs/remotes/origin/business'
+|\ \ \ \ \  
+| |/ / / /  
+| * | | | 3a59b16 : Finished Implementing Business
+|/ / / /  
+* | | |   68b52e2 : Merge remote-tracking branch 'refs/remotes/origin/first'
+|\ \ \ \  
+| * | | | b357888 : Finished implementing first
+| * | | |   53ae344 : Merge remote-tracking branch 'refs/remotes/origin/master' into first
+| |\ \ \ \  
+| |/ / / /  
+|/| | | |   
+* | | | |   011623f : Merge remote-tracking branch 'refs/remotes/origin/passenger'
+|\ \ \ \ \  
+| |_|_|_|/  
+|/| | | |   
+| * | | | c592867 : Implemented copyPassengerState
+| * | | | 58fa0f8 : Fixed a typo.
+| * | | | a35aeb8 : Clean Up, Minor Fixes, and Detailed Exceptions
+| * | | |   f4b1330 : Merge remote-tracking branch 'refs/remotes/origin/master' into passenger
+| |\ \ \ \  
+| |/ / / /  
+|/| | | |   
+| | * | |   432d321 : Merge remote-tracking branch 'refs/remotes/origin/master' into first
+| | |\ \ \  
+| |_|/ / /  
+|/| | | |   
+* | | | | c708096 : Fixing Explainations
+| |_|_|/  
+|/| | |   
+* | | | 58c5937 : Explaining Github
+| |_|/  
+|/| |   
+| | * 9014eeb : Partial completion of first.java
+| |/  
+|/|   
+* |   ed8c342 : Merge remote-tracking branch 'refs/remotes/origin/passenger'
+|\ \  
+| |/  
+| * 0037241 : Finished passenger.java
+| *   a6074c0 : Merge remote-tracking branch 'refs/remotes/origin/master' into passenger
+| |\  
+| * | f564f95 : Fixed .gitignore
+| * | 043e2dd : Updated .gitignore
+| * | bd02a34 : Updated Passenger Class
+| * |   6759abb : Merge remote-tracking branch 'refs/remotes/origin/master' into passenger
+| |\ \  
+| * | | 7041b8b : Partial Implementation of Passenger Abstract Class
+| * | | 32e82b0 : Added .gitignore
+* | | | 493abdd : Updated Javadoc to v1.1
+| |_|/  
+|/| |   
+* | | 4396b6d : Updated .gitignore
+| |/  
+|/|   
+* | ae58e6a : Added .gitignore to master
+|/  
+* d687282 : Updated Code Drop + Cleanup
+* a18edd6 : Revert "Cleaning Up Master"
+* e8e30ad : Cleaning Up Master
+* 199d50a : Uploaded Base Code Drop
+* be163a4 : Added Specification
+* b38bf63 : Cleaning Up
+* 39f4df1 : Test Push
+
+
+
+--------------------------------------------------
+Git Log for Premium Branch
+--------------------------------------------------
+
+*   9e69c8d : Merge remote-tracking branch 'refs/remotes/origin/master' into premium
+|\  
+| *   1e4b03d : Merge remote-tracking branch 'refs/remotes/origin/passenger-tests'
+| |\  
+| | * 277e177 : Added Unit Tests and Minor Fixes
+| | *   49b2693 : Merge remote-tracking branch 'refs/remotes/origin/master' into passenger-tests
+| | |\  
+| | |/  
+| |/|   
+| * |   7abb21b : Merge remote-tracking branch 'refs/remotes/origin/aircraft'
+| |\ \  
+| | |/  
+| |/|   
+| | * e804dbf : upgrade completed
+| | *   b2f2166 : Merge remote-tracking branch 'refs/remotes/origin/master' into aircraft
+| | |\  
+| | |/  
+| |/|   
+| * | 87c4585 : Updated how upgrade() handles passID changes
+| | * 045e58c : some changes in upgradeBookings()
+| | * a526199 : undo bad upgrade work
+| | * 427c361 : A380 finished
+| | * 4f53092 : finished aircraft (except upgrade)
+| | *   26ed076 : Merge remote-tracking branch 'refs/remotes/origin/master' into aircraft
+| | |\  
+| | |/  
+| |/|   
+| | * de6534c : aircraft basic methods completed
+| | *   b25e712 : Merge remote-tracking branch 'refs/remotes/origin/master' into aircraft
+| | |\  
+| | * \   0c90865 : Merge remote-tracking branch 'refs/remotes/origin/master' into aircraft
+| | |\ \  
+| | * | | d3307e9 : Merge remote-tracking branch 'refs/remotes/origin/master' into aircraft
+| | * | | e19ba69 : testpush
+* | | | |   5376743 : Merge remote-tracking branch 'refs/remotes/origin/master' into premium
+|\ \ \ \ \  
+| |/ / / /  
+| * | | |   3e4b957 : Merge remote-tracking branch 'refs/remotes/origin/economy'
+| |\ \ \ \  
+| | * | | | b134188 : Finished implementing economy
+| |/ / / /  
+| * | | |   770925f : Merge remote-tracking branch 'refs/remotes/origin/premium'
+| |\ \ \ \  
+| |/ / / /  
+|/| | | |   
+* | | | | 2867423 : Finished implementing premium
+* | | | |   da6f41c : Merge remote-tracking branch 'refs/remotes/origin/master' into premium
+|\ \ \ \ \  
+| |/ / / /  
+| * | | |   cd5a593 : Merge remote-tracking branch 'refs/remotes/origin/business'
+| |\ \ \ \  
+|/ / / / /  
+| * | | | 4991624 : Removed accidental comment.
+* | | | |   ec902ec : Merge remote-tracking branch 'refs/remotes/origin/business'
+|\ \ \ \ \  
+| |/ / / /  
+| * | | | 3a59b16 : Finished Implementing Business
+|/ / / /  
+* | | |   68b52e2 : Merge remote-tracking branch 'refs/remotes/origin/first'
+|\ \ \ \  
+| * | | | b357888 : Finished implementing first
+| * | | |   53ae344 : Merge remote-tracking branch 'refs/remotes/origin/master' into first
+| |\ \ \ \  
+| |/ / / /  
+|/| | | |   
+* | | | |   011623f : Merge remote-tracking branch 'refs/remotes/origin/passenger'
+|\ \ \ \ \  
+| |_|_|_|/  
+|/| | | |   
+| * | | | c592867 : Implemented copyPassengerState
+| * | | | 58fa0f8 : Fixed a typo.
+| * | | | a35aeb8 : Clean Up, Minor Fixes, and Detailed Exceptions
+| * | | |   f4b1330 : Merge remote-tracking branch 'refs/remotes/origin/master' into passenger
+| |\ \ \ \  
+| |/ / / /  
+|/| | | |   
+| | * | |   432d321 : Merge remote-tracking branch 'refs/remotes/origin/master' into first
+| | |\ \ \  
+| |_|/ / /  
+|/| | | |   
+* | | | | c708096 : Fixing Explainations
+| |_|_|/  
+|/| | |   
+* | | | 58c5937 : Explaining Github
+| |_|/  
+|/| |   
+| | * 9014eeb : Partial completion of first.java
+| |/  
+|/|   
+* |   ed8c342 : Merge remote-tracking branch 'refs/remotes/origin/passenger'
+|\ \  
+| |/  
+| * 0037241 : Finished passenger.java
+| *   a6074c0 : Merge remote-tracking branch 'refs/remotes/origin/master' into passenger
+| |\  
+| * | f564f95 : Fixed .gitignore
+| * | 043e2dd : Updated .gitignore
+| * | bd02a34 : Updated Passenger Class
+| * |   6759abb : Merge remote-tracking branch 'refs/remotes/origin/master' into passenger
+| |\ \  
+| * | | 7041b8b : Partial Implementation of Passenger Abstract Class
+| * | | 32e82b0 : Added .gitignore
+* | | | 493abdd : Updated Javadoc to v1.1
+| |_|/  
+|/| |   
+* | | 4396b6d : Updated .gitignore
+| |/  
+|/|   
+* | ae58e6a : Added .gitignore to master
+|/  
+* d687282 : Updated Code Drop + Cleanup
+* a18edd6 : Revert "Cleaning Up Master"
+* e8e30ad : Cleaning Up Master
+* 199d50a : Uploaded Base Code Drop
+* be163a4 : Added Specification
+* b38bf63 : Cleaning Up
+* 39f4df1 : Test Push
+
+
+
+--------------------------------------------------
+Git Log for Business Branch
+--------------------------------------------------
+
+*   668a263 : Merge remote-tracking branch 'refs/remotes/origin/master' into business
+|\  
+| *   1e4b03d : Merge remote-tracking branch 'refs/remotes/origin/passenger-tests'
+| |\  
+| | * 277e177 : Added Unit Tests and Minor Fixes
+| | *   49b2693 : Merge remote-tracking branch 'refs/remotes/origin/master' into passenger-tests
+| | |\  
+| | |/  
+| |/|   
+| * |   7abb21b : Merge remote-tracking branch 'refs/remotes/origin/aircraft'
+| |\ \  
+| | |/  
+| |/|   
+| | * e804dbf : upgrade completed
+| | *   b2f2166 : Merge remote-tracking branch 'refs/remotes/origin/master' into aircraft
+| | |\  
+| | |/  
+| |/|   
+| * | 87c4585 : Updated how upgrade() handles passID changes
+| | * 045e58c : some changes in upgradeBookings()
+| | * a526199 : undo bad upgrade work
+| | * 427c361 : A380 finished
+| | * 4f53092 : finished aircraft (except upgrade)
+| | *   26ed076 : Merge remote-tracking branch 'refs/remotes/origin/master' into aircraft
+| | |\  
+| | |/  
+| |/|   
+| | * de6534c : aircraft basic methods completed
+| | *   b25e712 : Merge remote-tracking branch 'refs/remotes/origin/master' into aircraft
+| | |\  
+| | * \   0c90865 : Merge remote-tracking branch 'refs/remotes/origin/master' into aircraft
+| | |\ \  
+| | * | | d3307e9 : Merge remote-tracking branch 'refs/remotes/origin/master' into aircraft
+| | * | | e19ba69 : testpush
+* | | | |   9741db5 : Merge remote-tracking branch 'refs/remotes/origin/master' into business
+|\ \ \ \ \  
+| |/ / / /  
+| * | | |   3e4b957 : Merge remote-tracking branch 'refs/remotes/origin/economy'
+| |\ \ \ \  
+| | * | | | b134188 : Finished implementing economy
+| |/ / / /  
+| * | | |   770925f : Merge remote-tracking branch 'refs/remotes/origin/premium'
+| |\ \ \ \  
+| | * | | | 2867423 : Finished implementing premium
+| | * | | |   da6f41c : Merge remote-tracking branch 'refs/remotes/origin/master' into premium
+| | |\ \ \ \  
+| | |/ / / /  
+| |/| | | |   
+| * | | | |   cd5a593 : Merge remote-tracking branch 'refs/remotes/origin/business'
+| |\ \ \ \ \  
+| |/ / / / /  
+|/| / / / /   
+| |/ / / /    
+* | | | | 4991624 : Removed accidental comment.
+| * | | |   ec902ec : Merge remote-tracking branch 'refs/remotes/origin/business'
+| |\ \ \ \  
+| |/ / / /  
+|/| | | |   
+* | | | | 3a59b16 : Finished Implementing Business
+|/ / / /  
+* | | |   68b52e2 : Merge remote-tracking branch 'refs/remotes/origin/first'
+|\ \ \ \  
+| * | | | b357888 : Finished implementing first
+| * | | |   53ae344 : Merge remote-tracking branch 'refs/remotes/origin/master' into first
+| |\ \ \ \  
+| |/ / / /  
+|/| | | |   
+* | | | |   011623f : Merge remote-tracking branch 'refs/remotes/origin/passenger'
+|\ \ \ \ \  
+| |_|_|_|/  
+|/| | | |   
+| * | | | c592867 : Implemented copyPassengerState
+| * | | | 58fa0f8 : Fixed a typo.
+| * | | | a35aeb8 : Clean Up, Minor Fixes, and Detailed Exceptions
+| * | | |   f4b1330 : Merge remote-tracking branch 'refs/remotes/origin/master' into passenger
+| |\ \ \ \  
+| |/ / / /  
+|/| | | |   
+| | * | |   432d321 : Merge remote-tracking branch 'refs/remotes/origin/master' into first
+| | |\ \ \  
+| |_|/ / /  
+|/| | | |   
+* | | | | c708096 : Fixing Explainations
+| |_|_|/  
+|/| | |   
+* | | | 58c5937 : Explaining Github
+| |_|/  
+|/| |   
+| | * 9014eeb : Partial completion of first.java
+| |/  
+|/|   
+* |   ed8c342 : Merge remote-tracking branch 'refs/remotes/origin/passenger'
+|\ \  
+| |/  
+| * 0037241 : Finished passenger.java
+| *   a6074c0 : Merge remote-tracking branch 'refs/remotes/origin/master' into passenger
+| |\  
+| * | f564f95 : Fixed .gitignore
+| * | 043e2dd : Updated .gitignore
+| * | bd02a34 : Updated Passenger Class
+| * |   6759abb : Merge remote-tracking branch 'refs/remotes/origin/master' into passenger
+| |\ \  
+| * | | 7041b8b : Partial Implementation of Passenger Abstract Class
+| * | | 32e82b0 : Added .gitignore
+* | | | 493abdd : Updated Javadoc to v1.1
+| |_|/  
+|/| |   
+* | | 4396b6d : Updated .gitignore
+| |/  
+|/|   
+* | ae58e6a : Added .gitignore to master
+|/  
+* d687282 : Updated Code Drop + Cleanup
+* a18edd6 : Revert "Cleaning Up Master"
+* e8e30ad : Cleaning Up Master
+* 199d50a : Uploaded Base Code Drop
+* be163a4 : Added Specification
+* b38bf63 : Cleaning Up
+* 39f4df1 : Test Push
+
+
+
+--------------------------------------------------
+Git Log for First Branch
+--------------------------------------------------
+
+*   4cac049 : Merge remote-tracking branch 'refs/remotes/origin/master' into first
+|\  
+| *   1e4b03d : Merge remote-tracking branch 'refs/remotes/origin/passenger-tests'
+| |\  
+| | * 277e177 : Added Unit Tests and Minor Fixes
+| | *   49b2693 : Merge remote-tracking branch 'refs/remotes/origin/master' into passenger-tests
+| | |\  
+| | |/  
+| |/|   
+| * |   7abb21b : Merge remote-tracking branch 'refs/remotes/origin/aircraft'
+| |\ \  
+| | |/  
+| |/|   
+| | * e804dbf : upgrade completed
+| | *   b2f2166 : Merge remote-tracking branch 'refs/remotes/origin/master' into aircraft
+| | |\  
+| | |/  
+| |/|   
+| * | 87c4585 : Updated how upgrade() handles passID changes
+| | * 045e58c : some changes in upgradeBookings()
+| | * a526199 : undo bad upgrade work
+| | * 427c361 : A380 finished
+| | * 4f53092 : finished aircraft (except upgrade)
+| | *   26ed076 : Merge remote-tracking branch 'refs/remotes/origin/master' into aircraft
+| | |\  
+| | |/  
+| |/|   
+| | * de6534c : aircraft basic methods completed
+| | *   b25e712 : Merge remote-tracking branch 'refs/remotes/origin/master' into aircraft
+| | |\  
+| | * \   0c90865 : Merge remote-tracking branch 'refs/remotes/origin/master' into aircraft
+| | |\ \  
+| | * | | d3307e9 : Merge remote-tracking branch 'refs/remotes/origin/master' into aircraft
+| | * | | e19ba69 : testpush
+* | | | |   aa2a04b : Merge remote-tracking branch 'refs/remotes/origin/master' into first
+|\ \ \ \ \  
+| |/ / / /  
+| * | | |   3e4b957 : Merge remote-tracking branch 'refs/remotes/origin/economy'
+| |\ \ \ \  
+| | * | | | b134188 : Finished implementing economy
+| |/ / / /  
+| * | | |   770925f : Merge remote-tracking branch 'refs/remotes/origin/premium'
+| |\ \ \ \  
+| | * | | | 2867423 : Finished implementing premium
+| | * | | |   da6f41c : Merge remote-tracking branch 'refs/remotes/origin/master' into premium
+| | |\ \ \ \  
+| | |/ / / /  
+| |/| | | |   
+| * | | | |   cd5a593 : Merge remote-tracking branch 'refs/remotes/origin/business'
+| |\ \ \ \ \  
+| | |/ / / /  
+| |/| | | |   
+| | * | | | 4991624 : Removed accidental comment.
+| * | | | |   ec902ec : Merge remote-tracking branch 'refs/remotes/origin/business'
+| |\ \ \ \ \  
+| | |/ / / /  
+| | * | | | 3a59b16 : Finished Implementing Business
+| |/ / / /  
+| * | | |   68b52e2 : Merge remote-tracking branch 'refs/remotes/origin/first'
+| |\ \ \ \  
+| |/ / / /  
+|/| | | |   
+* | | | | b357888 : Finished implementing first
+* | | | |   53ae344 : Merge remote-tracking branch 'refs/remotes/origin/master' into first
+|\ \ \ \ \  
+| |/ / / /  
+| * | | |   011623f : Merge remote-tracking branch 'refs/remotes/origin/passenger'
+| |\ \ \ \  
+| | |_|_|/  
+| |/| | |   
+| | * | | c592867 : Implemented copyPassengerState
+| | * | | 58fa0f8 : Fixed a typo.
+| | * | | a35aeb8 : Clean Up, Minor Fixes, and Detailed Exceptions
+| | * | |   f4b1330 : Merge remote-tracking branch 'refs/remotes/origin/master' into passenger
+| | |\ \ \  
+| | |/ / /  
+| |/| | |   
+* | | | |   432d321 : Merge remote-tracking branch 'refs/remotes/origin/master' into first
+|\ \ \ \ \  
+| |/ / / /  
+| * | | | c708096 : Fixing Explainations
+| | |_|/  
+| |/| |   
+| * | | 58c5937 : Explaining Github
+| | |/  
+| |/|   
+* | | 9014eeb : Partial completion of first.java
+|/ /  
+* |   ed8c342 : Merge remote-tracking branch 'refs/remotes/origin/passenger'
+|\ \  
+| |/  
+| * 0037241 : Finished passenger.java
+| *   a6074c0 : Merge remote-tracking branch 'refs/remotes/origin/master' into passenger
+| |\  
+| * | f564f95 : Fixed .gitignore
+| * | 043e2dd : Updated .gitignore
+| * | bd02a34 : Updated Passenger Class
+| * |   6759abb : Merge remote-tracking branch 'refs/remotes/origin/master' into passenger
+| |\ \  
+| * | | 7041b8b : Partial Implementation of Passenger Abstract Class
+| * | | 32e82b0 : Added .gitignore
+* | | | 493abdd : Updated Javadoc to v1.1
+| |_|/  
+|/| |   
+* | | 4396b6d : Updated .gitignore
+| |/  
+|/|   
+* | ae58e6a : Added .gitignore to master
+|/  
+* d687282 : Updated Code Drop + Cleanup
+* a18edd6 : Revert "Cleaning Up Master"
+* e8e30ad : Cleaning Up Master
+* 199d50a : Uploaded Base Code Drop
+* be163a4 : Added Specification
+* b38bf63 : Cleaning Up
+* 39f4df1 : Test Push
+
+
+
+--------------------------------------------------
+Git Log for Passenger Tests Branch
+--------------------------------------------------
+
+*   9453b20 : Merge remote-tracking branch 'refs/remotes/origin/master' into passenger-tests
+|\  
+| *   1e4b03d : Merge remote-tracking branch 'refs/remotes/origin/passenger-tests'
+| |\  
+| |/  
+|/|   
+* | 277e177 : Added Unit Tests and Minor Fixes
+* |   49b2693 : Merge remote-tracking branch 'refs/remotes/origin/master' into passenger-tests
+|\ \  
+| |/  
+| *   7abb21b : Merge remote-tracking branch 'refs/remotes/origin/aircraft'
+| |\  
+|/ /  
+| * e804dbf : upgrade completed
+| *   b2f2166 : Merge remote-tracking branch 'refs/remotes/origin/master' into aircraft
+| |\  
+| |/  
+|/|   
+* | 87c4585 : Updated how upgrade() handles passID changes
+| * 045e58c : some changes in upgradeBookings()
+| * a526199 : undo bad upgrade work
+| * 427c361 : A380 finished
+| * 4f53092 : finished aircraft (except upgrade)
+| *   26ed076 : Merge remote-tracking branch 'refs/remotes/origin/master' into aircraft
+| |\  
+| |/  
+|/|   
+* |   3e4b957 : Merge remote-tracking branch 'refs/remotes/origin/economy'
+|\ \  
+| * | b134188 : Finished implementing economy
+|/ /  
+* |   770925f : Merge remote-tracking branch 'refs/remotes/origin/premium'
+|\ \  
+| * | 2867423 : Finished implementing premium
+| * |   da6f41c : Merge remote-tracking branch 'refs/remotes/origin/master' into premium
+| |\ \  
+| |/ /  
+|/| |   
+* | |   cd5a593 : Merge remote-tracking branch 'refs/remotes/origin/business'
+|\ \ \  
+| |/ /  
+|/| |   
+| * | 4991624 : Removed accidental comment.
+* | |   ec902ec : Merge remote-tracking branch 'refs/remotes/origin/business'
+|\ \ \  
+| |/ /  
+| * | 3a59b16 : Finished Implementing Business
+|/ /  
+* |   68b52e2 : Merge remote-tracking branch 'refs/remotes/origin/first'
+|\ \  
+| * | b357888 : Finished implementing first
+| * |   53ae344 : Merge remote-tracking branch 'refs/remotes/origin/master' into first
+| |\ \  
+| |/ /  
+|/| |   
+* | |   011623f : Merge remote-tracking branch 'refs/remotes/origin/passenger'
+|\ \ \  
+| * | | c592867 : Implemented copyPassengerState
+| * | | 58fa0f8 : Fixed a typo.
+| * | | a35aeb8 : Clean Up, Minor Fixes, and Detailed Exceptions
+| * | |   f4b1330 : Merge remote-tracking branch 'refs/remotes/origin/master' into passenger
+| |\ \ \  
+| |/ / /  
+|/| | |   
+| | * |   432d321 : Merge remote-tracking branch 'refs/remotes/origin/master' into first
+| | |\ \  
+| |_|/ /  
+|/| | |   
+| | * | 9014eeb : Partial completion of first.java
+| | | * de6534c : aircraft basic methods completed
+| | | *   b25e712 : Merge remote-tracking branch 'refs/remotes/origin/master' into aircraft
+| | | |\  
+| |_|_|/  
+|/| | |   
+* | | | c708096 : Fixing Explainations
+| | | *   0c90865 : Merge remote-tracking branch 'refs/remotes/origin/master' into aircraft
+| | | |\  
+| |_|_|/  
+|/| | |   
+* | | | 58c5937 : Explaining Github
+| |/ /  
+|/| |   
+| | * d3307e9 : Merge remote-tracking branch 'refs/remotes/origin/master' into aircraft
+| | * e19ba69 : testpush
+| |/  
+|/|   
+* |   ed8c342 : Merge remote-tracking branch 'refs/remotes/origin/passenger'
+|\ \  
+| |/  
+| * 0037241 : Finished passenger.java
+| *   a6074c0 : Merge remote-tracking branch 'refs/remotes/origin/master' into passenger
+| |\  
+| * | f564f95 : Fixed .gitignore
+| * | 043e2dd : Updated .gitignore
+| * | bd02a34 : Updated Passenger Class
+| * |   6759abb : Merge remote-tracking branch 'refs/remotes/origin/master' into passenger
+| |\ \  
+| * | | 7041b8b : Partial Implementation of Passenger Abstract Class
+| * | | 32e82b0 : Added .gitignore
+* | | | 493abdd : Updated Javadoc to v1.1
+| |_|/  
+|/| |   
+* | | 4396b6d : Updated .gitignore
+| |/  
+|/|   
+* | ae58e6a : Added .gitignore to master
+|/  
+* d687282 : Updated Code Drop + Cleanup
+* a18edd6 : Revert "Cleaning Up Master"
+* e8e30ad : Cleaning Up Master
+* 199d50a : Uploaded Base Code Drop
+* be163a4 : Added Specification
+* b38bf63 : Cleaning Up
+* 39f4df1 : Test Push
+
+
+
+--------------------------------------------------
+Git Log for GUI Branch
+--------------------------------------------------
+
+* 9023eb6 : Update
+* a13494f : update
+* 0d0dca9 : Update
+* 8ac8820 : Update
+* 1e763c7 : Added 2nd Chart Window
+* 01bdd35 : update
+* 266362f : chart
+* 1009c13 : Update
+* ac7cd31 : Added Data Setting
+* 1cb5697 : A thing! I made a thing!
+* 6237c68 : Added Scroll Pane
+* fbbcfd4 : Reverse
+* d374b75 : Update
+* 5de3546 : writing
+* 7cb004f : Update
+* 3b7c821 : Update
+* c9ca3b6 : Disabled the chart button until simulator is run.
+* e900bcd : Update
+* 56b077e : premium
+* 4c1c8cf : Update
+* 39cb895 : woops
+* 6d437af : available added
+* e9793c4 : upgradebookings and logs
+* d304cfe : logs
+* a56947d : airacraft upgrade
+* d107c52 : log
+* 90bd7dd : update to getPassengers
+* 8d0e02a : Update, Sort of.
+* 1016f8a : Update
+* 08b8ad9 : Update
+* 2829501 : ChartPanel class, and updates to Show Chart button event handler.
+* 00271ae : Added some exception handling and error reporting for the GUI
+*   6647bf8 : Merge remote-tracking branch 'refs/remotes/origin/master' into GUI
+|\  
+| *   af6d3ce : Merge remote-tracking branch 'refs/remotes/origin/aircraft'
+| |\  
+| | * b777934 : tests
+| | * 48189dd : Commenting
+| | * 9ed7e9d : tests
+| | * 7bd6b5f : more tests, minor changes to aircraft
+| | * 3949a98 : tests
+| | *   221c82e : Merge remote-tracking branch 'refs/remotes/origin/master' into aircraft
+| | |\  
+| | |/  
+| |/|   
+| | *   1f3f411 : Merge remote-tracking branch 'refs/remotes/origin/master' into aircraft
+| | |\  
+* | | \   3494157 : Merge remote-tracking branch 'refs/remotes/origin/master' into GUI
+|\ \ \ \  
+| |/ / /  
+| * | | 9970611 : instanceof changes
+* | | | 09bf9f6 : Update
+* | | | 1aa8c31 : Added some basic code to create a JFreeChart window, required Plot data.
+* | | | 1c89d47 : Added Error Catching and Correction to Modifiable Inputs
+* | | | e5a034a : Basic Error Reporting for Queue Size
+* | | | c4b9e20 : Set Default Values in Simulator Window
+* | | | 7fa270b : Added JFreeChart Library
+* | | | 80bf110 : Tidied Up GUI Code
+* | | | 7ec8b2c : Layout for GUI Log Complete
+* | | | db0fbeb : More fiddling with the GUI
+* | | | df4531d : Fiddling around with Swing
+* | | | 4cd2213 : Added asgn2Simulators
+|/ / /  
+* | | 3b6c519 : Update PassengerTests.java
+* | |   1e4b03d : Merge remote-tracking branch 'refs/remotes/origin/passenger-tests'
+|\ \ \  
+| |_|/  
+|/| |   
+| * | 277e177 : Added Unit Tests and Minor Fixes
+| * |   49b2693 : Merge remote-tracking branch 'refs/remotes/origin/master' into passenger-tests
+| |\ \  
+| |/ /  
+|/| |   
+* | |   7abb21b : Merge remote-tracking branch 'refs/remotes/origin/aircraft'
+|\ \ \  
+| |/ /  
+|/| /   
+| |/    
+| * e804dbf : upgrade completed
+| *   b2f2166 : Merge remote-tracking branch 'refs/remotes/origin/master' into aircraft
+| |\  
+| |/  
+|/|   
+* | 87c4585 : Updated how upgrade() handles passID changes
+| * 045e58c : some changes in upgradeBookings()
+| * a526199 : undo bad upgrade work
+| * 427c361 : A380 finished
+| * 4f53092 : finished aircraft (except upgrade)
+| *   26ed076 : Merge remote-tracking branch 'refs/remotes/origin/master' into aircraft
+| |\  
+| |/  
+|/|   
+* |   3e4b957 : Merge remote-tracking branch 'refs/remotes/origin/economy'
+|\ \  
+| * | b134188 : Finished implementing economy
+|/ /  
+* |   770925f : Merge remote-tracking branch 'refs/remotes/origin/premium'
+|\ \  
+| * | 2867423 : Finished implementing premium
+| * |   da6f41c : Merge remote-tracking branch 'refs/remotes/origin/master' into premium
+| |\ \  
+| |/ /  
+|/| |   
+* | |   cd5a593 : Merge remote-tracking branch 'refs/remotes/origin/business'
+|\ \ \  
+| |/ /  
+|/| |   
+| * | 4991624 : Removed accidental comment.
+* | |   ec902ec : Merge remote-tracking branch 'refs/remotes/origin/business'
+|\ \ \  
+| |/ /  
+| * | 3a59b16 : Finished Implementing Business
+|/ /  
+* |   68b52e2 : Merge remote-tracking branch 'refs/remotes/origin/first'
+|\ \  
+| * | b357888 : Finished implementing first
+| * |   53ae344 : Merge remote-tracking branch 'refs/remotes/origin/master' into first
+| |\ \  
+| |/ /  
+|/| |   
+* | |   011623f : Merge remote-tracking branch 'refs/remotes/origin/passenger'
+|\ \ \  
+| * | | c592867 : Implemented copyPassengerState
+| * | | 58fa0f8 : Fixed a typo.
+| * | | a35aeb8 : Clean Up, Minor Fixes, and Detailed Exceptions
+| * | |   f4b1330 : Merge remote-tracking branch 'refs/remotes/origin/master' into passenger
+| |\ \ \  
+| |/ / /  
+|/| | |   
+| | * |   432d321 : Merge remote-tracking branch 'refs/remotes/origin/master' into first
+| | |\ \  
+| |_|/ /  
+|/| | |   
+| | * | 9014eeb : Partial completion of first.java
+| | | * de6534c : aircraft basic methods completed
+| | | *   b25e712 : Merge remote-tracking branch 'refs/remotes/origin/master' into aircraft
+| | | |\  
+| |_|_|/  
+|/| | |   
+* | | | c708096 : Fixing Explainations
+| | | *   0c90865 : Merge remote-tracking branch 'refs/remotes/origin/master' into aircraft
+| | | |\  
+| |_|_|/  
+|/| | |   
+* | | | 58c5937 : Explaining Github
+| |/ /  
+|/| |   
+| | * d3307e9 : Merge remote-tracking branch 'refs/remotes/origin/master' into aircraft
+| | * e19ba69 : testpush
+| |/  
+|/|   
+* |   ed8c342 : Merge remote-tracking branch 'refs/remotes/origin/passenger'
+|\ \  
+| |/  
+| * 0037241 : Finished passenger.java
+| *   a6074c0 : Merge remote-tracking branch 'refs/remotes/origin/master' into passenger
+| |\  
+| * | f564f95 : Fixed .gitignore
+| * | 043e2dd : Updated .gitignore
+| * | bd02a34 : Updated Passenger Class
+| * |   6759abb : Merge remote-tracking branch 'refs/remotes/origin/master' into passenger
+| |\ \  
+| * | | 7041b8b : Partial Implementation of Passenger Abstract Class
+| * | | 32e82b0 : Added .gitignore
+* | | | 493abdd : Updated Javadoc to v1.1
+| |_|/  
+|/| |   
+* | | 4396b6d : Updated .gitignore
+| |/  
+|/|   
+* | ae58e6a : Added .gitignore to master
+|/  
+* d687282 : Updated Code Drop + Cleanup
+* a18edd6 : Revert "Cleaning Up Master"
+* e8e30ad : Cleaning Up Master
+* 199d50a : Uploaded Base Code Drop
+* be163a4 : Added Specification
+* b38bf63 : Cleaning Up
+* 39f4df1 : Test Push
+
+
+
+--------------------------------------------------
+Git Log for Master Branch
+--------------------------------------------------
+
+*   289ebf1 : Merge remote-tracking branch 'refs/remotes/origin/GUI'
+|\  
+| * 9023eb6 : Update
+| * a13494f : update
+| * 0d0dca9 : Update
+| * 8ac8820 : Update
+| * 1e763c7 : Added 2nd Chart Window
+| * 01bdd35 : update
+| * 266362f : chart
+| * 1009c13 : Update
+| * ac7cd31 : Added Data Setting
+| * 1cb5697 : A thing! I made a thing!
+| * 6237c68 : Added Scroll Pane
+| * fbbcfd4 : Reverse
+| * d374b75 : Update
+| * 5de3546 : writing
+| * 7cb004f : Update
+| * 3b7c821 : Update
+| * c9ca3b6 : Disabled the chart button until simulator is run.
+| * e900bcd : Update
+| * 56b077e : premium
+| * 4c1c8cf : Update
+| * 39cb895 : woops
+| * 6d437af : available added
+| * e9793c4 : upgradebookings and logs
+| * d304cfe : logs
+| * a56947d : airacraft upgrade
+| * d107c52 : log
+| * 90bd7dd : update to getPassengers
+| * 8d0e02a : Update, Sort of.
+| * 1016f8a : Update
+| * 08b8ad9 : Update
+| * 2829501 : ChartPanel class, and updates to Show Chart button event handler.
+| * 00271ae : Added some exception handling and error reporting for the GUI
+| *   6647bf8 : Merge remote-tracking branch 'refs/remotes/origin/master' into GUI
+| |\  
+| |/  
+|/|   
+* |   af6d3ce : Merge remote-tracking branch 'refs/remotes/origin/aircraft'
+|\ \  
+| * | b777934 : tests
+| * | 48189dd : Commenting
+| * | 9ed7e9d : tests
+| * | 7bd6b5f : more tests, minor changes to aircraft
+| * | 3949a98 : tests
+| * |   221c82e : Merge remote-tracking branch 'refs/remotes/origin/master' into aircraft
+| |\ \  
+| |/ /  
+|/| |   
+| * |   1f3f411 : Merge remote-tracking branch 'refs/remotes/origin/master' into aircraft
+| |\ \  
+| | | *   3494157 : Merge remote-tracking branch 'refs/remotes/origin/master' into GUI
+| | | |\  
+| |_|_|/  
+|/| | |   
+* | | | 9970611 : instanceof changes
+| | | * 09bf9f6 : Update
+| | | * 1aa8c31 : Added some basic code to create a JFreeChart window, required Plot data.
+| | | * 1c89d47 : Added Error Catching and Correction to Modifiable Inputs
+| | | * e5a034a : Basic Error Reporting for Queue Size
+| | | * c4b9e20 : Set Default Values in Simulator Window
+| | | * 7fa270b : Added JFreeChart Library
+| | | * 80bf110 : Tidied Up GUI Code
+| | | * 7ec8b2c : Layout for GUI Log Complete
+| | | * db0fbeb : More fiddling with the GUI
+| | | * df4531d : Fiddling around with Swing
+| | | * 4cd2213 : Added asgn2Simulators
+| |_|/  
+|/| |   
+* | | 3b6c519 : Update PassengerTests.java
+* | |   1e4b03d : Merge remote-tracking branch 'refs/remotes/origin/passenger-tests'
+|\ \ \  
+| |_|/  
+|/| |   
+| * | 277e177 : Added Unit Tests and Minor Fixes
+| * |   49b2693 : Merge remote-tracking branch 'refs/remotes/origin/master' into passenger-tests
+| |\ \  
+| |/ /  
+|/| |   
+* | |   7abb21b : Merge remote-tracking branch 'refs/remotes/origin/aircraft'
+|\ \ \  
+| |/ /  
+|/| /   
+| |/    
+| * e804dbf : upgrade completed
+| *   b2f2166 : Merge remote-tracking branch 'refs/remotes/origin/master' into aircraft
+| |\  
+| |/  
+|/|   
+* | 87c4585 : Updated how upgrade() handles passID changes
+| * 045e58c : some changes in upgradeBookings()
+| * a526199 : undo bad upgrade work
+| * 427c361 : A380 finished
+| * 4f53092 : finished aircraft (except upgrade)
+| *   26ed076 : Merge remote-tracking branch 'refs/remotes/origin/master' into aircraft
+| |\  
+| |/  
+|/|   
+* |   3e4b957 : Merge remote-tracking branch 'refs/remotes/origin/economy'
+|\ \  
+| * | b134188 : Finished implementing economy
+|/ /  
+* |   770925f : Merge remote-tracking branch 'refs/remotes/origin/premium'
+|\ \  
+| * | 2867423 : Finished implementing premium
+| * |   da6f41c : Merge remote-tracking branch 'refs/remotes/origin/master' into premium
+| |\ \  
+| |/ /  
+|/| |   
+* | |   cd5a593 : Merge remote-tracking branch 'refs/remotes/origin/business'
+|\ \ \  
+| |/ /  
+|/| |   
+| * | 4991624 : Removed accidental comment.
+* | |   ec902ec : Merge remote-tracking branch 'refs/remotes/origin/business'
+|\ \ \  
+| |/ /  
+| * | 3a59b16 : Finished Implementing Business
+|/ /  
+* |   68b52e2 : Merge remote-tracking branch 'refs/remotes/origin/first'
+|\ \  
+| * | b357888 : Finished implementing first
+| * |   53ae344 : Merge remote-tracking branch 'refs/remotes/origin/master' into first
+| |\ \  
+| |/ /  
+|/| |   
+* | |   011623f : Merge remote-tracking branch 'refs/remotes/origin/passenger'
+|\ \ \  
+| * | | c592867 : Implemented copyPassengerState
+| * | | 58fa0f8 : Fixed a typo.
+| * | | a35aeb8 : Clean Up, Minor Fixes, and Detailed Exceptions
+| * | |   f4b1330 : Merge remote-tracking branch 'refs/remotes/origin/master' into passenger
+| |\ \ \  
+| |/ / /  
+|/| | |   
+| | * |   432d321 : Merge remote-tracking branch 'refs/remotes/origin/master' into first
+| | |\ \  
+| |_|/ /  
+|/| | |   
+| | * | 9014eeb : Partial completion of first.java
+| | | * de6534c : aircraft basic methods completed
+| | | *   b25e712 : Merge remote-tracking branch 'refs/remotes/origin/master' into aircraft
+| | | |\  
+| |_|_|/  
+|/| | |   
+* | | | c708096 : Fixing Explainations
+| | | *   0c90865 : Merge remote-tracking branch 'refs/remotes/origin/master' into aircraft
+| | | |\  
+| |_|_|/  
+|/| | |   
+* | | | 58c5937 : Explaining Github
+| |/ /  
+|/| |   
+| | * d3307e9 : Merge remote-tracking branch 'refs/remotes/origin/master' into aircraft
+| | * e19ba69 : testpush
+| |/  
+|/|   
+* |   ed8c342 : Merge remote-tracking branch 'refs/remotes/origin/passenger'
+|\ \  
+| |/  
+| * 0037241 : Finished passenger.java
+| *   a6074c0 : Merge remote-tracking branch 'refs/remotes/origin/master' into passenger
+| |\  
+| * | f564f95 : Fixed .gitignore
+| * | 043e2dd : Updated .gitignore
+| * | bd02a34 : Updated Passenger Class
+| * |   6759abb : Merge remote-tracking branch 'refs/remotes/origin/master' into passenger
+| |\ \  
+| * | | 7041b8b : Partial Implementation of Passenger Abstract Class
+| * | | 32e82b0 : Added .gitignore
+* | | | 493abdd : Updated Javadoc to v1.1
+| |_|/  
+|/| |   
+* | | 4396b6d : Updated .gitignore
+| |/  
+|/|   
+* | ae58e6a : Added .gitignore to master
+|/  
+* d687282 : Updated Code Drop + Cleanup
+* a18edd6 : Revert "Cleaning Up Master"
+* e8e30ad : Cleaning Up Master
+* 199d50a : Uploaded Base Code Drop
+* be163a4 : Added Specification
+* b38bf63 : Cleaning Up
+* 39f4df1 : Test Push
