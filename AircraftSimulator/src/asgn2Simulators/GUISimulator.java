@@ -65,7 +65,8 @@ public class GUISimulator extends JFrame implements Runnable {
 	
 	// Create Buttons
 	JButton b1 = new JButton("Run Simulation");
-	JButton b2 = new JButton("Show Chart 2");
+	JButton b2 = new JButton("Show Chart 1");
+	JButton b3 = new JButton("Show Chart 2");
 	
 	// Create Panels
 	JPanel p1 = new JPanel();
@@ -90,6 +91,8 @@ public class GUISimulator extends JFrame implements Runnable {
 	private static XYSeries economy = new XYSeries("Economy");
 	private static XYSeries total = new XYSeries("Total");
 	private static XYSeries empty = new XYSeries("Empty");
+	private static XYSeries queued = new XYSeries("Queued");
+	private static XYSeries refused = new XYSeries("Refused");
 	
 	/**
 	 * @param arg0
@@ -158,12 +161,14 @@ public class GUISimulator extends JFrame implements Runnable {
 					l3.setFont(new Font("Arial", Font.PLAIN, 30));
 				p4.add(b1);
 				p4.add(b2);
+				p4.add(b3);
 
 		// Add Panels to Window
 		add(p1);
 
 		// Disable Button by Default
 		b2.setEnabled(false);
+		b3.setEnabled(false);
 		
 		// Add Event Listeners to Text Fields
 		t3.getDocument().addDocumentListener(new DocumentListener(){
@@ -293,6 +298,7 @@ public class GUISimulator extends JFrame implements Runnable {
 				String[] args = new String[]{t1.getText(), t3.getText(), t2.getText(), Double.toString(Constants.DEFAULT_DAILY_BOOKING_SD), t5.getText(), t6.getText(), t8.getText(), t7.getText(), t4.getText()};
 				SimulationRunner.main(args);
 				b2.setEnabled(true);
+				b3.setEnabled(true);
 			}
 		});
 		
@@ -300,6 +306,13 @@ public class GUISimulator extends JFrame implements Runnable {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				XYChartPanel.main(createDataset());
+			}
+		});
+		
+		b3.addActionListener(new ActionListener(){
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				XYChartPanel.main(createOtherDataset());
 			}
 		});
 		
@@ -338,6 +351,13 @@ public class GUISimulator extends JFrame implements Runnable {
 		return dataset;
 	}
 	
+	private XYDataset createOtherDataset(){
+		final XYSeriesCollection dataset = new XYSeriesCollection();
+		dataset.addSeries(queued);
+		dataset.addSeries(refused);
+		return dataset;
+	}
+	
 	public static void addData(int series, double x, double y){
 		switch(series){
 			case 0:
@@ -357,6 +377,17 @@ public class GUISimulator extends JFrame implements Runnable {
 				break;
 			case 5:
 				empty.add(x, y);
+				break;
+		}
+	}
+	
+	public static void addOtherData(int series, double x, double y){
+		switch(series){
+			case 0:
+				queued.add(x, y);
+				break;
+			case 1:
+				refused.add(x, y);
 				break;
 		}
 	}

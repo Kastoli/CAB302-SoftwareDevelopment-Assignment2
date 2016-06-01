@@ -22,7 +22,7 @@ import org.jfree.ui.RefineryUtilities;
 public class XYChartPanel extends ApplicationFrame {	
 	public XYChartPanel(String windowTitle, String chartTitle, XYDataset dataset){
 		super(windowTitle);
-		JFreeChart XYLineChart = ChartFactory.createXYLineChart(chartTitle, "X Axis", "Y Axis", dataset, PlotOrientation.VERTICAL, true, true, false);
+		JFreeChart XYLineChart = ChartFactory.createXYLineChart(chartTitle, "Days", "Passengers", dataset, PlotOrientation.VERTICAL, true, true, false);
 		ChartPanel chartPanel = new ChartPanel(XYLineChart);
 		chartPanel.setPreferredSize(new java.awt.Dimension(800, 540));
 		XYPlot plot = XYLineChart.getXYPlot();
@@ -38,7 +38,7 @@ public class XYChartPanel extends ApplicationFrame {
 	}
 	
 	public static void main(XYDataset dataset){
-		XYChartPanel chart = new XYChartPanel("window title", "chart title", dataset);
+		XYChartPanel chart = new XYChartPanel("Simulation Graph 1", "Simulation Results", dataset);
 		chart.pack();
 		RefineryUtilities.centerFrameOnScreen(chart);
 		chart.setVisible(true);
