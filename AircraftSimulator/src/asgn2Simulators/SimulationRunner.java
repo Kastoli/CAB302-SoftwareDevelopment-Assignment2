@@ -142,7 +142,8 @@ public class SimulationRunner {
 			this.log.logQREntries(time, sim);
 			this.log.logEntry(time,this.sim);
 			
-			
+			//GUI chart Progress
+			//Chart 1
 			if(time > 21){
 				Bookings counts = sim.getFlights(time).getCurrentCounts();				
 				GUISimulator.addData(0, time, counts.getNumFirst());
@@ -152,6 +153,8 @@ public class SimulationRunner {
 				GUISimulator.addData(4, time, counts.getTotal());
 				GUISimulator.addData(5, time, counts.getAvailable());
 			}
+			
+			//Chart 2
 			GUISimulator.addData(6, time, sim.numInQueue());
 			GUISimulator.addData(7, time, sim.numRefused());
 		}
